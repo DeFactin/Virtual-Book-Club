@@ -1,0 +1,644 @@
+body {
+    background-color: whitesmoke;
+    box-sizing: border-box;
+    font-family: 'Roboto Serif', serif;
+}
+
+.mainPicture {
+    display: inline-block;
+    width: 80px;
+    height: 80px;
+    margin-left: 15%;
+    margin-right: 5%;
+    vertical-align: middle;
+}
+
+.writer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #b91c1c
+}
+
+#topBar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: whitesmoke;
+    box-shadow: 0px 5px 10px #00000033;
+    z-index: 10;
+}
+
+#navigation {
+    display: flex;
+}
+
+#bottom {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+#navigation button,
+#bottom button {
+    color: #333;
+    background-color: whitesmoke;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background-color 0.1s;
+    padding: 15px;
+    border: none;
+    outline: none;
+    border: none;
+    border: whitesmoke solid 2px;
+}
+
+
+#navigation button:hover,
+#bottom button:hover {
+    border: #eabbbb solid 2px;
+    background-color: #eabbbb;
+}
+
+#navigation button.active,
+#bottom button.active {
+    color: #b91c1c;
+}
+
+.dailyPoem {
+    text-align: center;
+    text-decoration: none;
+    padding: 30px;
+}
+
+.poem {
+    font-size: 20px;
+    line-height: 1.4;
+    text-align: center;
+    color: #333;
+}
+
+.dailyPoem h2 {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+form {
+    background-color: whitesmoke;
+    width: 300px;
+    height: 45px;
+    border-radius: 5px;
+    display: inline-flex;
+    align-items: center;
+    margin-left: 30px;
+    margin-right: auto;
+    margin-top: 10px;
+    border: #333 solid 2px;
+    padding: 3px;
+}
+
+input {
+    all: unset;
+    font: 16px;
+    color: #333;
+    height: 90%;
+    width: 100%;
+    padding: 5px 10px;
+}
+
+::placeholder {
+    position: relative;
+    z-index: 1;
+    color: #333;
+    opacity: 0.8;
+}
+
+.search-button {
+    background-color: #F9F5F1;
+    padding: 10px 20px;
+    cursor: pointer;
+    display: flex;
+    border: none;
+    align-items: center;
+}
+
+.search-button img {
+    width: 25px;
+    height: 25px;
+    opacity: 0.7;
+}
+
+
+.tabs {
+    display: none;
+    margin-top: 10%;
+}
+
+#Submission,
+#Requests {
+    width: 100%;
+    background-color: whitesmoke;
+    display: block;
+    padding-bottom: 50px;
+}
+
+#Submission button,
+#Requests button {
+    display: block;
+    width: 20%;
+    height: 50px;
+    color: #333;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin: 0 auto;
+    background-color: whitesmoke;
+    transition: background-color 0.3s;
+    border: #333 solid 2px;
+    border-radius: 10px;
+}
+
+#Submission button:hover,
+#Requests button:hover {
+    background-color: #E1def5;
+    border: #333 solid 2px;
+    color: #333;
+}
+
+#Submission textarea,
+#Requests textarea {
+    width: 100%;
+    color: #333;
+    background-color: whitesmoke;
+    margin-top: 30px;
+    margin-bottom: 10px;
+    border: #9d8dfc dashed 3px;
+    border-radius: 10px;
+}
+
+textarea:focus {
+    outline: none !important;
+    border: 1px solid red;
+    box-shadow: 0 0 5px #719ECE;
+}
+
+#Requests p {
+    text-align: center;
+    font-size: larger;
+}
+
+#Poems,
+#Stories {
+    margin-top: 20px;
+    padding-top: 110px;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+}
+
+.active {
+    display: block;
+}
+
+.log-button {
+    background-color: #F9F5F1;
+    width: 20px;
+    height: 20px;
+}
+
+.forms {
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #DEE0E0;
+
+}
+
+#Profile label {
+    display: flex;
+    margin-right: 5px;
+    vertical-align: middle;
+    justify-content: center;
+    align-self: center;
+}
+
+.submit-button {
+    display: flex;
+    justify-content: center;
+    width: 90px;
+    height: 90px;
+    vertical-align: middle;
+    align-self: center;
+    margin-left: auto;
+    margin-right: auto;
+    border: #333 solid 1px;
+}
+
+.genders {
+    display: flex;
+    justify-content: center;
+    vertical-align: middle;
+    align-self: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.login {
+    margin-left: 40px;
+}
+
+.open-button {
+    background-color: whitesmoke;
+    color: #333;
+    border: none;
+    cursor: pointer;
+    height: 60px;
+    width: 75px;
+    justify-content: center;
+    margin-left: 40px;
+    margin-right: auto;
+    font-size: medium;
+}
+
+.open-button:hover {
+    color: #b91c1c;
+}
+
+.form-popup {
+    position: fixed;
+    display: none;
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 1px solid #b91c1c;
+    z-index: 9;
+    background-color: whitesmoke;
+}
+
+.form-container {
+    flex-direction: column;
+    max-width: 300px;
+    height: fit-content;
+    margin-left: 20px;
+    margin-right: 20px;
+    padding: 10px;
+    border: none;
+}
+
+.form-container input[type=text],
+.form-container input[type=password] {
+    width: 90%;
+    padding: 5px;
+    margin: 10px 0 25px 0;
+    border: 1px solid #b91c1c;
+    background: whitesmoke;
+}
+
+.form-container .buttons {
+    background-color: #C4F0C2;
+    color: black;
+    padding: 8px 10px;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    margin-bottom: 10px;
+    opacity: 0.8;
+}
+
+.form-container .cancel {
+    background-color: #b91c1c;
+}
+
+.form-container .buttons:hover,
+.open-button:hover {
+    opacity: 1;
+}
+
+.collection {
+    display: none;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: 10fr 10fr 10fr;
+    gap: 80px;
+}
+
+.poemBox {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 150px;
+    height: 50px;
+    border: 2px solid #9d8dfc;
+}
+
+.poemBox p {
+    font-size: medium;
+}
+
+.poemBox:hover,
+.sliderBtn:hover {
+    opacity: 0.3;
+    cursor: pointer;
+}
+
+.author {
+    border: 1px solid whitesmoke;
+    margin-left: 100px;
+    margin-right: 100px;
+}
+
+.author:hover {
+    border: 1px solid #9d8dfc;
+}
+
+.story {
+    display: grid;
+    grid-template-columns: 10fr 10fr;
+    gap: 80px;
+}
+
+.transition-effect {
+    transition: opacity 0.5s ease-in-out;
+}
+
+.homepage {
+    display: grid;
+    grid-template-columns: 10fr 10fr;
+    gap: 30px;
+}
+
+.astronaut {
+    margin-top: 150px;
+}
+
+.scroller {
+    display: inline-flex;
+    width: 70px;
+    height: 70px;
+}
+
+.quote {
+    font-family: 'Rouge Script', cursive;
+    font-size: 60px;
+    text-align: center;
+}
+
+.poemsplus {
+    display: none;
+    text-align: center;
+    text-decoration: none;
+}
+
+.poem {
+    color: #000;
+    font-family: 'Times New Roman', Times, serif;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 1.125;
+}
+
+.secondgrid {
+    display: grid;
+    grid-template-rows: 10fr 10fr;
+    gap: 80px;
+}
+
+.commentBtn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40%;
+    height: 30px;
+    border: 1px solid #333;
+    margin-left: 30%;
+    padding: 30px;
+    background-color: #cfe2f3;
+    text-align: center;
+}
+
+.comments {
+    display: block;
+    width: 40%;
+    height: 10%;
+    margin-left: 30%;
+    padding: 20px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border: 1px solid #333;
+    text-align: left;
+}
+
+.comments p,
+.comments input {
+    border: 1px solid #9d8dfc;
+    text-indent: 25px;
+    text-align: left;
+}
+
+#content {
+    margin-top: 12%;
+}
+
+* {
+    box-sizing: border-box
+}
+
+
+.mySlides {
+    display: none;
+}
+
+
+.prev,
+.next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    margin-top: -22px;
+    padding: 16px;
+    font-size: 70px;
+    transition: 0.6s ease;
+    user-select: none;
+    opacity: 0.6;
+}
+
+.next {
+    right: 0;
+    border-radius: 3px 0 0 3px;
+}
+
+.prev:hover,
+.next:hover {
+    opacity: 0.3;
+    cursor: pointer;
+}
+
+.dot {
+    cursor: pointer;
+    height: 15px;
+    width: 15px;
+    margin: 0 2px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.6s ease;
+}
+
+.dot:hover {
+    background-color: #333;
+}
+
+.fade {
+    animation-name: fade;
+    animation-duration: 1.5s;
+}
+
+@keyframes fade {
+    from {
+        opacity: .4
+    }
+
+    to {
+        opacity: 1
+    }
+}
+
+.prev,
+.next {
+    color: #333;
+}
+
+.gridHome {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    height: 505px;
+}
+
+.bookshelf {
+    width: 100%;
+    margin-top: 10px;
+    margin-bottom: 30px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.book {
+    width: 90px;
+    height: 300px;
+    margin-left: 70px;
+    position: relative;
+    transform-style: preserve-3d;
+    transform: translateZ(0) rotateY(0);
+    transition: transform 1s;
+}
+
+.side {
+    position: absolute;
+    border: 2px solid black;
+    border-radius: 3px;
+    font-weight: bold;
+    color: black;
+    text-align: center;
+    transform-origin: center left;
+}
+
+.spine {
+    position: relative;
+    width: 50px;
+    height: 280px;
+    background-color: #F6F6F6;
+    transform: rotateY(0deg) translateZ(0px);
+}
+
+.spine-title {
+    margin: 2px;
+    position: absolute;
+    top: 40px;
+    left: 10px;
+    font-size: 20px;
+    color: #1a1919;
+    writing-mode: vertical-rl;
+    transform: rotateZ(180deg);
+}
+
+.spine-author {
+    position: absolute;
+    color: #1a1919;
+    bottom: 0px;
+    left: 20%;
+}
+
+.top {
+    width: 50px;
+    height: 190px;
+    top: -2px;
+    background-image: linear-gradient(90deg, whitesmoke 90%, gray 10%);
+    background-size: 5px 5px;
+    transform: rotateX(90deg) translateZ(95px) translateY(-95px);
+}
+
+.cover {
+    width: 190px;
+    height: 280px;
+    top: 0px;
+    background-size: contain;
+    background-repeat: round;
+    left: 50px;
+    transform: rotateY(90deg) translateZ(0);
+    transition: transform 1s;
+}
+
+#Celan .cover {
+    background-image: url("images/PCCOver.jpg");
+}
+
+#Herbert .cover {
+    background-image: url("images/HZCover.jpg");
+}
+
+#Siken .cover {
+    background-image: url("images/SikenCover.jpeg");
+}
+
+#Bodler .cover {
+    background-image: url("images/BodlerCover.jpg");
+}
+
+#Edgar .cover {
+    background-image: url("images/EdgarCover.jpg");
+}
+
+#Bukowski .cover {
+    background-image: url("images/BukowskiCover.jpg");
+}
+
+#Pushkin .cover {
+    background-image: url("images/PushkinCover.jpg");
+}
+
+#kamialber .cover {
+    background-image: url("images/strangercamus.webp");
+}
+
+#asimovisak .cover {
+    background-image: url("images/asimovbook.jpg");
+}
+
+#zbigniewscover .cover {
+    background-image: url("images/kingofants.png");
+}
+
+#kafkacover .cover {
+    background-image: url("images/metamorfoza.jpg");
+}
+
+.book:hover {
+    z-index: 1;
+    transform: rotateX(-25deg) rotateY(-40deg) rotateZ(-15deg) translateY(50px) translateX(-30px);
+}

@@ -1,0 +1,3755 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Virtual Book Club</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link rel="stylesheet" href="vanilla.css">
+    <link href="/dist/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="bookshelf.css">
+    <link rel="preconnect" href="nhttps://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Serif:opsz@8..144&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rouge+Script&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <div class="block pt-5 items-center" id="topBar">
+        <div class="flex items-center pb-2">
+            <img class="mainPicture" src="images/greek-column_70888.png" alt="image not found!">
+            <p class="text-3xl align-middle text-red-600 mr-11">Virtual Book Club</p>
+            <form id="form" role="search" class="ml-11">
+                <input type="search" id="query" placeholder="  Search...">
+                <button class="search-button" type="submit">
+                    <img src="images/search-icon-png-5.png" alt="Icon">
+                </button>
+            </form>
+
+            <button class="open-button" onclick="openLogin()">
+                <p class="text-xl">Log in</p>
+            </button>
+            <button class="open-button" onclick="openSignup()">
+                <p class="text-xl">Sign up</p>
+            </button>
+        </div>
+        <div id="navigation">
+            <button onclick="showTab('Home')" class="active">
+                <p class="text-xl">Home</p>
+            </button>
+            <button onclick="showTab('Poems')">
+                <p class="text-xl">Poems</p>
+            </button>
+            <button onclick="showTab('Stories')">
+                <p class="text-xl">Short Stories</p>
+            </button>
+            <button onclick="showTab('Submission')">
+                <p class="text-xl">Submit your work</p>
+            </button>
+            <button onclick="showTab('Requests')">
+                <p class="text-xl">Requests</p>
+            </button>
+        </div>
+    </div>
+
+    <div id="content">
+
+        <div class="form-popup" id="login">
+            <form class="form-container">
+
+                <label for="email"><b>Email</b></label>
+                <input type="text" placeholder="Enter Email" name="email" required>
+
+                <label for="psw"><b>Password</b></label>
+                <input type="password" placeholder="Enter Password" name="psw" required>
+
+                <button type="submit" class="buttons">Log In</button>
+                <button type="button" class="buttons cancel" onclick="closeLogin()">Close</button>
+            </form>
+        </div>
+
+        <div class="form-popup" id="signup">
+            <form class="form-container">
+
+                <label for="username"><b>Pseudonym: </b></label>
+                <input type="text" placeholder="Enter Username" name="username" required>
+
+                <label for="email"><b>Email</b></label>
+                <input type="text" placeholder="Enter Email" name="email" required>
+
+                <label for="psw"><b>Password</b></label>
+                <input type="password" placeholder="Enter Password" name="psw" required>
+                <div style="display: inline-flex;margin-bottom: 15px;">
+                    <label style="margin-right:10px;" for="gender">Gender:</label>
+                    <select name="gender">
+                        <option>Choose a gender</option>
+                        <option>Female</option>
+                        <option>Male</option>
+                        <option>Other</option>
+                    </select>
+                </div>
+                <button type="submit" class="buttons">Sign Up</button>
+                <button type="button" class="buttons cancel" onclick="closeSignup()">Close</button>
+            </form>
+        </div>
+
+        <div id="Home" class="tabs">
+            <div class="gridHome">
+                <div class="slideshow-container">
+
+                    <div class="mySlides fade">
+                        <div class="homepage pb-11 scroll-smooth">
+                            <div class="place-self-center align-middle">
+                                <p class="quote">Welcome!</p>
+                            </div>
+                            <div class="dailyPoem">
+
+                                <br>
+                                <p class="self-center font-semibold text-red-700">I Hear</p>
+                                <br>
+                                <p class="poem">
+                                    I hear the axe has flowered,<br>
+                                    I hear the place can't be named,<br>
+                                    I hear the bread that looks on him<br>
+                                    heals the hanged man,<br>
+                                    the bread his wife baked him,<br>
+                                    I hear they call life<br>
+                                    the only refuge.<br>
+                                </p>
+                                <br>
+                                <p class="inline-flex font-semibold text-red-700">
+                                    by Paul Celan <img src="images/writingPen.svg" alt="image not found!"
+                                        style="width:30px;height: 30px;margin-left: 10px;">
+                                </p>
+                                <br><br>
+                                <br>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mySlides fade">
+                        <div class="pt-11 scroll-smooth">
+                            <div class="dailyPoem">
+                                <br>
+                                <p class="poem">
+                                    If you have any songs<br> you wish to share with<br>
+                                    the World, be sure to
+                                <p class="reference self-center font-semibold text-red-700 "
+                                    onclick="showTab('Requests')">make a request.</p><br>
+                                <br>
+                                If you want to read<br> works of the<br> famous poets and writers<br>
+                                make sure to <p class="reference self-center font-semibold text-red-700 "
+                                    onclick="showTab('Poems')">visit the library.</p><br>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mySlides fade">
+                        <div class="homepage scroll-smooth">
+                            <div class="dailyPoem">
+                                <p class="self-center font-semibold text-red-700">Marrow</p>
+                                <br>
+                                <p class="poem">
+                                    we were once whole<br>
+                                    tied closely together<br>
+                                    like marrow and bones<br>
+                                    but now I lull myself to sleep<br>
+                                    with sticks and stones<br>
+                                    like a red riding hood<br>
+                                    I wait for the weight<br>
+                                    ready to fill my gut<br>
+                                    even though we are different<br>
+                                    and you are not red anymore<br>
+                                    you take this so well<br>
+                                    we could be whole again<br>
+                                    if not for this unbearable<br>
+                                    stomach lining<br>
+                                    that I have mistaken for a home<br>
+                                </p>
+                            </div>
+                            <div class="dailyPoem">
+                                <p class="self-center font-semibold text-red-700">Solitude</p>
+                                <br>
+                                <p class="poem">
+                                    we swore an oath to the heavens<br>
+                                    that we shall retain solitude<br>
+                                    but to no avail<br>
+                                    souls keep appearing and blinking<br>
+                                    on this ground<br>
+                                    twinkling souls call to me:<br>
+                                    'there is no heaven,<br>
+                                    come and grow old with us'<br>
+                                    such a shame that my deafness<br>
+                                    is my own unbearable child<br>
+                                    we are lighter than air<br>
+                                    we do not sob<br>
+                                    'ess muss sein<br>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+                    <a class="next" onclick="plusSlides(1)">&#10095;</a>
+                </div>
+                <div class="astronaut">
+                    <script src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs"
+                        type="module"></script>
+                    <dotlottie-player src="https://lottie.host/c20897fe-7d25-4cb4-b79b-c67d0c1daf90/eI9a42Vfct.json"
+                        background="transparent" speed="1" style="width: 300px; height: 300px;" loop
+                        autoplay></dotlottie-player>
+                </div>
+            </div>
+            <br>
+            <div style="text-align:center">
+                <span class="dot" onclick="currentSlide(1)"></span>
+                <span class="dot" onclick="currentSlide(2)"></span>
+                <span class="dot" onclick="currentSlide(3)"></span>
+            </div>
+        </div>
+
+        <div id="Poems" class="tabs">
+            <div class="bookshelf">
+
+                <div onclick="showCollection('celanwork')" class="book" id="Celan">
+                    <div class="side spine">
+                        <span class="spine-title">Paul Celan</span>
+                    </div>
+                    <div class="side top"></div>
+                    <div class="side cover"></div>
+                </div>
+
+                <div onclick="showCollection('herbertwork')" class="book" id="Herbert">
+                    <div class="side spine">
+                        <span class="spine-title"> Zbigniew Herbert </span>
+                    </div>
+                    <div class="side top"></div>
+                    <div class="side cover"></div>
+                </div>
+
+                <div onclick="showCollection('sikenwork')" class="book" id="Siken">
+                    <div class="side spine">
+                        <span class="spine-title"> Richard Siken </span>
+                    </div>
+                    <div class="side top"></div>
+                    <div class="side cover"></div>
+                </div>
+
+                <div onclick="showCollection('bodlerwork')" class="book" id="Bodler">
+                    <div class="side spine">
+                        <span class="spine-title"> Charles Baudelaire </span>
+                    </div>
+                    <div class="side top"></div>
+                    <div class="side cover"></div>
+                </div>
+
+                <div onclick="showCollection('edgarwork')" class="book" id="Edgar">
+                    <div class="side spine">
+                        <span class="spine-title"> Edgar Allan Poe </span>
+                    </div>
+                    <div class="side top"></div>
+                    <div class="side cover"></div>
+                </div>
+
+                <div onclick="showCollection('bukowskiwork')" class="book" id="Bukowski">
+                    <div class="side spine">
+                        <span class="spine-title"> Charles Bukowski </span>
+                    </div>
+                    <div class="side top"></div>
+                    <div class="side cover"></div>
+                </div>
+
+                <div onclick="showCollection('pushkinwork')" class="book" id="Pushkin">
+                    <div class="side spine">
+                        <span class="spine-title"> Alexander Pushkin </span>
+                    </div>
+                    <div class="side top"></div>
+                    <div class="side cover"></div>
+                </div>
+            </div>
+
+            <div id="celanwork" class="collection dailyPoem">
+                <div style="display:flex;justify-content: center;align-items: center;margin:50px;">
+                    <button class="sliderBtn mx-5">
+                        <img class="opacity-700 w-20 h-15" src="images/switch_6576893.png">
+                    </button>
+                    <img style="width: 90px;height: 90px; vertical-align: middle;margin-left: 20px;margin-right: 60px;"
+                        src="images/lyre_3584007.png">
+                    <div class="grid">
+                        <div class="poemBox" onclick="popPoem('Todesfugue')">
+                            <p>Todesfugue</p>
+                        </div>
+                        <div class="poemBox" onclick="popPoem('Corona')">
+                            <p>Corona</p>
+                        </div>
+                        <div class="poemBox" onclick="popPoem('TheJars')">
+                            <p>The Jars</p>
+                        </div>
+                        <div class="poemBox" onclick="popPoem('VariableKey')">
+                            <p>Variable Key</p>
+                        </div>
+                        <div class="poemBox" onclick="popPoem('Mandorla')">
+                            <p>Mandorla</p>
+                        </div>
+                        <div class="poemBox" onclick="popPoem('Tenebrae')">
+                            <p>Tenebrae</p>
+                        </div>
+                        <div class="poemBox" onclick="popPoem('Imagine')">
+                            <p>Imagine</p>
+                        </div>
+                        <div class="poemBox" onclick="popPoem('Strangeness')">
+                            <p>Strangeness</p>
+                        </div>
+                        <div class="poemBox" onclick="popPoem('Fieldmouse')">
+                            <p>Fieldmouse</p>
+                        </div>
+                    </div>
+                    <a href="https://en.wikipedia.org/wiki/Paul_Celan" target="_blank">
+                        <img class="author" src="images/paul.jpeg">
+                    </a>
+                    <button onclick="slider('next')" class="sliderBtn mx-5">
+                        <img class="opacity-700 w-20 h-15" src="images/switch_6576893.png">
+                    </button>
+                </div>
+            </div>
+
+            <div id="herbertwork" class="collection dailyPoem">
+
+                <div style="display:flex;justify-content: center;align-items: center;margin:50px;">
+                    <button onclick="slider('back')" class="sliderBtn mx-5">
+                        <img class="opacity-700 w-20 h-15" src="images/switch_6576893.png">
+                    </button>
+                    <img style="width: 90px;height: 90px; vertical-align: middle;margin-left: 20px;margin-right: 60px;"
+                        src="images/lyre_3584007.png">
+                    <div class="grid">
+                        <div class="poemBox" onclick="popPoem('Chord')">
+                            <p>Chord</p>
+                        </div>
+                        <div class="poemBox" onclick="popPoem('WarsawCemetery')">
+                            <p>Warsaw Cemetery</p>
+                        </div>
+                        <div class="poemBox" onclick="popPoem('Testament')">
+                            <p>Testament</p>
+                        </div>
+                        <div class="poemBox" onclick="popPoem('TremblesandHeavens')">
+                            <p>Trembles and Heavens</p>
+                        </div>
+                        <div class="poemBox" onclick="popPoem('TheSaltOfTheEarth')">
+                            <p>The Salt Of The Earth</p>
+                        </div>
+                        <div class="poemBox" onclick="popPoem('ToHisFist')">
+                            <p>To His Fist</p>
+                        </div>
+                        <div class="poemBox" onclick="popPoem('ToTheHungarians')">
+                            <p>To The Hungarians</p>
+                        </div>
+                        <div class="poemBox" onclick="popPoem('Violin')">
+                            <p>Violin</p>
+                        </div>
+                        <div class="poemBox" onclick="popPoem('TheEnvoyofMrCogito')">
+                            <p>The Envoy of Mr.Cogito</p>
+                        </div>
+                    </div>
+                    <a href="https://en.wikipedia.org/wiki/Zbigniew_Herbert" target="_blank">
+                        <img class="author" src="images/zbigniew.jpg">
+                    </a>
+                    <button onclick="slider('next')" class="sliderBtn mx-5">
+                        <img class="opacity-700 w-20 h-15" src="images/switch_6576893.png">
+                    </button>
+                </div>
+            </div>
+
+            <div id="sikenwork" class="collection dailyPoem">
+                <div style="display:flex;justify-content: center;align-items: center;margin:50px;">
+                    <button onclick="slider('back')" class="sliderBtn mx-5">
+                        <img class="opacity-700 w-20 h-15" src="images/switch_6576893.png">
+                    </button>
+                    <img style="width: 90px;height: 90px; vertical-align: middle;margin-left: 20px;margin-right: 60px;"
+                        src="images/lyre_3584007.png">
+                    <div class="grid">
+                        <div class="poemBox" onclick="popPoem('Scheherazade')">
+                            <p>Scheherazade</p>
+                        </div>
+                        <div class="poemBox" onclick="popPoem('VisibleWorld')">
+                            <p>Visible World</p>
+                        </div>
+                        <div class="poemBox" onclick="popPoem('DetailOfTheHayfield')">
+                            <p>Detail of The Hayfield</p>
+                        </div>
+                        <div class="poemBox" onclick="popPoem('DetailOfTheFire')">
+                            <p>Detail of The Fire</p>
+                        </div>
+                        <div class="poemBox" onclick="popPoem('Logic')">
+                            <p>Logic</p>
+                        </div>
+                        <div class="poemBox" onclick="popPoem('LoveSongOfTheSquareRootOfNegativeOne')">
+                            <p>√(−1)</p>
+                        </div>
+                        <div class="poemBox" onclick="popPoem('TheMysteryOfThePears')">
+                            <p>The Mystery of The Pears</p>
+                        </div>
+                        <div class="poemBox" onclick="popPoem('DotsEverywhere')">
+                            <p>Dots Everywhere</p>
+                        </div>
+                        <div class="poemBox" onclick="popPoem('Turpentine')">
+                            <p>Turpentine</p>
+                        </div>
+                    </div>
+                    <a href="https://en.wikipedia.org/wiki/Richard_Siken" target="_blank">
+                        <img style="opacity: 0.85;" class="author" src="images/Siken.jpg">
+                    </a>
+                    <button onclick="slider('next')" class="sliderBtn mx-5"><img class="opacity-700 w-20 h-15"
+                            src="images/switch_6576893.png"></button>
+                </div>
+            </div>
+
+            <div id="bodlerwork" class="collection dailyPoem">
+                <div style="display:flex;justify-content: center;align-items: center;margin:50px;">
+                    <button onclick="slider('back')" class="sliderBtn mx-5">
+                        <img class="opacity-700 w-20 h-15" src="images/switch_6576893.png">
+                    </button>
+                    <img style="width: 90px;height: 90px; vertical-align: middle;margin-left: 20px;margin-right: 60px;"
+                        src="images/lyre_3584007.png">
+                    <div class="grid">
+                        <div class="poemBox" onclick="popPoem('HymnToBeauty')">
+                            <p>Hymn To Beauty</p>
+                        </div>
+                        <div class="poemBox" onclick="popPoem('Spleen')">
+                            <p>Spleen</p>
+                        </div>
+                        <div class="poemBox" onclick="popPoem('Autumn')">
+                            <p>Autumn</p>
+                        </div>
+                        <div class="poemBox" onclick="popPoem('TheEndOfTheDay')">
+                            <p>The End of The Day</p>
+                        </div>
+                        <div class="poemBox" onclick="popPoem('TheProfundisClamavi')">
+                            <p>The Profundis Clamavi</p>
+                        </div>
+                        <div class="poemBox" onclick="popPoem('Cats')">
+                            <p>Cats</p>
+                        </div>
+                        <div class="poemBox" onclick="popPoem('Beauty')">
+                            <p>Beauty</p>
+                        </div>
+                        <div class="poemBox" onclick="popPoem('SorrowsOfTheMoon')">
+                            <p>Sorrows Of The Moon</p>
+                        </div>
+                        <div class="poemBox" onclick="popPoem('TheBadMonk')">
+                            <p>The Bad Monk</p>
+                        </div>
+                    </div>
+                    <a href="https://en.wikipedia.org/wiki/Charles_Baudelaire" target="_blank">
+                        <img class="author" src="images/bodler.jpeg">
+                    </a>
+                    <button onclick="slider('next')" class="sliderBtn mx-5">
+                        <img class="opacity-700 w-20 h-15" src="images/switch_6576893.png">
+                    </button>
+                </div>
+
+            </div>
+
+            <div id="edgarwork" class="collection dailyPoem">
+                <div style="display:flex;justify-content: center;align-items: center;margin:50px;">
+                    <button onclick="slider('back')" class="sliderBtn mx-5">
+                        <img class="opacity-700 w-20 h-15" src="images/switch_6576893.png">
+                    </button>
+                    <img style="width: 90px;height: 90px; vertical-align: middle;margin-left: 20px;margin-right: 60px;"
+                        src="images/lyre_3584007.png">
+                    <div class="grid">
+                        <div class="poemBox" onclick="popPoem('Alone')">
+                            <p>Alone</p>
+                        </div>
+                        <div class="poemBox" onclick="popPoem('AnnabelLee')">
+                            <p>Annabel Lee</p>
+                        </div>
+                        <div class="poemBox" onclick="popPoem('ADreamWithinADream')">
+                            <p>A Dream Within A Dream</p>
+                        </div>
+                        <div class="poemBox" onclick="popPoem('Sonnet')">
+                            <p>Sonnet</p>
+                        </div>
+                        <div class="poemBox" onclick="popPoem('TheRaven')">
+                            <p>The Raven</p>
+                        </div>
+                        <div class="poemBox" onclick="popPoem('Israfel')">
+                            <p>Israfel</p>
+                        </div>
+                        <div class="poemBox" onclick="popPoem('TheValleyOfUnrest')">
+                            <p>The Valley Of Unrest</p>
+                        </div>
+                        <div class="poemBox" onclick="popPoem('SpiritsOfTheDead')">
+                            <p>Spirits Of The Dead</p>
+                        </div>
+                        <div class="poemBox" onclick="popPoem('ToHelen')">
+                            <p>To Helen</p>
+                        </div>
+                    </div>
+                    <a href="https://en.wikipedia.org/wiki/Edgar_Allan_Poe" target="_blank">
+                        <img class="author" src="images/edgar.jpg">
+                    </a>
+                    <button onclick="slider('next')" class="sliderBtn mx-5">
+                        <img class="opacity-700 w-20 h-15" src="images/switch_6576893.png">
+                    </button>
+                </div>
+
+            </div>
+
+            <div id="bukowskiwork" class="collection dailyPoem">
+                <div style="display:flex;justify-content: center;align-items: center;margin:50px;">
+                    <button onclick="slider('back')" class="sliderBtn mx-5">
+                        <img class="opacity-700 w-20 h-15" src="images/switch_6576893.png">
+                    </button>
+                    <img style="width: 90px;height: 90px; vertical-align: middle;margin-left: 20px;margin-right: 60px;"
+                        src="images/lyre_3584007.png">
+                    <div class="grid">
+                        <div class="poemBox" onclick="popPoem('16-bitIntel8088chip')">
+                            <p>16-bit Intel8088 chip</p>
+                        </div>
+                        <div class="poemBox" onclick="popPoem('AloneWithEverybody')">
+                            <p>Alone With Everybody</p>
+                        </div>
+                        <div class="poemBox" onclick="popPoem('Bluebird')">
+                            <p>Bluebird</p>
+                        </div>
+                        <div class="poemBox" onclick="popPoem('AsTheSparrow')">
+                            <p>As The Sparrow</p>
+                        </div>
+                        <div class="poemBox" onclick="popPoem('mycomputer')">
+                            <p>my computer</p>
+                        </div>
+                        <div class="poemBox" onclick="popPoem('CutWhileShaving')">
+                            <p>Cut While Shaving</p>
+                        </div>
+                        <div class="poemBox" onclick="popPoem('AsThePoemsGo')">
+                            <p>As The Poems Go</p>
+                        </div>
+                        <div class="poemBox" onclick="popPoem('TheCrunch')">
+                            <p>The Crunch</p>
+                        </div>
+                        <div class="poemBox" onclick="popPoem('MyCats')">
+                            <p>My Cats</p>
+                        </div>
+                    </div>
+                    <a href="https://en.wikipedia.org/wiki/Charles_Bukowski" target="_blank">
+                        <img class="author" src="images/bukowski.jpg">
+                    </a>
+                    <button onclick="slider('next')" class="sliderBtn mx-5">
+                        <img class="opacity-700 w-20 h-15" src="images/switch_6576893.png">
+                    </button>
+                </div>
+            </div>
+
+            <div id="pushkinwork" class="collection dailyPoem">
+                <div style="display:flex;justify-content: center;align-items: center;margin:50px;">
+                    <button onclick="slider('back')" class="sliderBtn mx-5">
+                        <img class="opacity-700 w-20 h-15" src="images/switch_6576893.png">
+                    </button>
+                    <img style="width: 90px;height: 90px; vertical-align: middle;margin-left: 20px;margin-right: 60px;"
+                        src="images/lyre_3584007.png">
+                    <div class="grid">
+                        <div class="poemBox" onclick="popPoem('AWish')">
+                            <p>A Wish</p>
+                        </div>
+                        <div class="poemBox" onclick="popPoem('Arion')">
+                            <p>Arion</p>
+                        </div>
+                        <div class="poemBox" onclick="popPoem('Morpheus')">
+                            <p>Morpheus</p>
+                        </div>
+                        <div class="poemBox" onclick="popPoem('TheTalisman')">
+                            <p>The Talisman</p>
+                        </div>
+                        <div class="poemBox" onclick="popPoem('Remembrance')">
+                            <p>Remembrance</p>
+                        </div>
+                        <div class="poemBox" onclick="popPoem('Solitude')">
+                            <p>Solitude</p>
+                        </div>
+                        <div class="poemBox" onclick="popPoem('Thoughts')">
+                            <p>Thoughts</p>
+                        </div>
+                        <div class="poemBox" onclick="popPoem('ThePoet')">
+                            <p>The Poet</p>
+                        </div>
+                        <div class="poemBox" onclick="popPoem('TheProphet')">
+                            <p>The Prophet</p>
+                        </div>
+                    </div>
+                    <a href="https://en.wikipedia.org/wiki/Alexander_Pushkin" target="_blank">
+                        <img class="author" src="images/pushkin.webp">
+                    </a>
+                    <button class="sliderBtn mx-5"><img class="opacity-700 w-20 h-15"
+                            src="images/switch_6576893.png"></button>
+                </div>
+            </div>
+
+            <div class="poemsplus" id="Todesfugue">
+                <p class="text-lg self--center font-semibold text-red-700">Todesfugue</p><br>
+                <p class="poem">
+                    Black milk of morning we drink you at dusktime<br>
+                    we drink you at noontime and dawntime we drink you at night<br>
+                    we drink and drink<br>
+                    we scoop out a grave in the sky where it's roomy to lie<br>
+                    There's a man in this house who cultivates snakes and who writes<br>
+                    who writes when it's nightfall nach Deutschland your golden hair<br>
+                    Margareta<br>
+                    he writes it and walks from the house and the stars all start flashing<br>
+                    he whistles his dogs to draw near<br>
+                    whistles his Jews to appear starts us scooping a grave out of sand<br>
+                    he commands us play up for the dance<br>
+                    Black milk of morning we drink you at night<br>
+                    we drink you at dawntime and noontime we drink you at dusktime<br>
+                    we drink and drink<br>
+                    There's a man in this house who cultivates snakes and who writes<br>
+                    who writes when it's nightfall nach Deutschland your golden hair<br>
+                    Margareta<br>
+                    your ashen hair Shulamite we scoop out a grave in the sky where it's<br>
+                    roomy to lie<br>
+                    He calls jab it deep in the soil you men you other men sing and play<br>
+                    he tugs at the sword in his belt he swings it his eyes are blue<br>
+                    jab your spades deeper you men you other men play up again for<br>
+                    the dance<br>
+                    Black milk of morning we drink you at night<br>
+                    we drink you at noontime and dawntime we drink you at dusktime<br>
+                    we drink and drink<br>
+                    there's a man in this house your golden hair Margareta<br>
+                    your ashen hair Shulamite he cultivates snakes<br>
+                    He calls play that death thing more sweetly Death is a gang-boss<br>
+                    aus Deutschland<br>
+                    he calls scrape that fiddle more darkly then hover like smoke in<br>
+                    the air<br>
+                    then scoop out a grave in the clouds where it's roomy to lie<br>
+                    Black milk of morning we drink you at night<br>
+                    we drink you at noontime Death is a gang-boss aus Deutschland<br>
+                    we drink you at dusktime and dawntime we drink and drink<br>
+                    Death is a gang-boss aus Deutschland his eye is blue<br>
+                    he hits you with leaden bullets his aim is true<br>
+                    there's a man in this house your golden hair Margareta<br>
+                    he sets his dogs on our trail he gives us a grave in the sky<br>
+                    he cultivates snakes and he dreams Death is a gang-boss aus<br>
+                    Deutschland<br>
+                    your golden hair Margareta<br>
+                    your ashen hair Shulamite<br>
+                </p>
+                <br>
+                <div class="commentBtn">
+                    <p> Comments </p>
+                </div>
+                <div class="comments" id="Paul1">
+                    <span class="inline-flex py-5 align-middle justify-items-center">
+                        <input class="commentContent" style="width:500px;height:35px;" type="text"
+                            placeholder="  Type comment..." required>
+                        <img src="images/message-arrow-up_9821556.png" style="width:40px;height:40px;margin-left: 10px;"
+                            onclick="addComments('Paul1')">
+                    </span>
+                </div>
+            </div>
+            <div class="poemsplus" id="Corona">
+                <p class="text-lg self--center font-semibold text-red-700">Corona</p><br>
+                <p class="poem">
+                    Autumn is eating a leaf from my hand: we are friends.<br>
+                    We are picking time out of a nut, we teach it to run:<br>
+                    and time rushes back to its shell.<br>
+                    In the mirror it's Sunday,<br>
+                    in dreams people sleep,<br>
+                    the mouth tells the truth.<br>
+                    My eye descends to the sex of my loved one,<br>
+                    we gaze at each other,<br>
+                    we whisper out darkness,<br>
+                    we love one another like poppies and memory,<br>
+                    we sleep like wine in a seashell,<br>
+                    like the sea in the moon's bloody rays.<br>
+                    Embracing we stand by the window, and people look up from<br>
+                    the street:<br>
+                    it is time that they knew!<br>
+                    It is time that the stone grew accustomed to blooming,<br>
+                    that unrest formed a heart.<br>
+                    It is time it was time.<br>
+                    It is time.
+                </p>
+                <br>
+                <div class="commentBtn">
+                    <p> Comments </p>
+                </div>
+                <div class="comments" id="Paul2">
+                    <span class="inline-flex py-5 align-middle justify-items-center">
+                        <input class="commentContent" style="width:500px;height:35px;" type="text"
+                            placeholder="   Type comment..." required>
+                        <img src="images/message-arrow-up_9821556.png" style="width:40px;height:40px;margin-left: 10px;"
+                            onclick="addComments('Paul2')">
+                    </span>
+                </div>
+            </div>
+            <div class="poemsplus" id="TheJars">
+                <p class="text-lg self--center font-semibold text-red-700">The Jars</p><br>
+                <p>for Klaus Demus</p><br>
+                <p class="poem">
+                    At the long tables of time<br>
+                    God's jars are boozing.<br>
+                    They guzzle the eyes of the seeing and the eyes of the blind,<br>
+                    the hearts of the ruling shadows,<br>
+                    the hollow cheek of evening.<br>
+                    They are the mightiest boozers:<br>
+                    they raise to their lips the empty as well as the full<br>
+                    and don't spill over like you or I.<br>
+                    Count the almonds,<br>
+                    count what was bitter and kept you awake,<br>
+                    count me in with them:<br>
+                    I searched for your eye which you opened when nobody saw you,<br>
+                    I spun that mysterious thread<br>
+                    down which the dew that you dreamed<br>
+                    slithered into a pitcher<br>
+                    kept from harm by a word found in nobody's heart.<br>
+                    There you first came into a name that was yours,<br>
+                    sure of foot you advanced on yourself,<br>
+                    the clappers swung free in your silence's belltower,<br>
+                    whatever you heard took a hold of you,<br>
+                    whatever was dead laid its hand on you too,<br>
+                    and threefold you moved through the evening.<br>
+                    Make me bitter.<br>
+                    Count me in with the almonds.
+                </p>
+                <br>
+                <div class="commentBtn">
+                    <p> Comments </p>
+                </div>
+                <div class="comments" id="Paul3">
+                    <span class="inline-flex py-5 align-middle justify-items-center">
+                        <input class="commentContent" style="width:500px;height:35px;" type="text"
+                            placeholder="   Type comment..." required>
+                        <img src="images/message-arrow-up_9821556.png" style="width:40px;height:40px;margin-left: 10px;"
+                            onclick="addComments('Paul3')">
+                    </span>
+                </div>
+            </div>
+            <div class="poemsplus" id="Tenebrae">
+                <p class="text-lg self--center font-semibold text-red-700">Tenebrae</p><br>
+                <p class="poem">
+                    Nigh are we, Lord,<br>
+                    near and graspable.<br>
+                    Gripped already, Lord,<br>
+                    in each other clutched, as though<br>
+                    the body of each of us were<br>
+                    your body, Lord.<br>
+                    Pray, Lord,<br>
+                    Pray to us,<br>
+                    we are nigh.<br>
+                    Windskew we went on,<br>
+                    we went on, to bend ourselves<br>
+                    at hollow and hole.<br>
+                    To the trough we went, Lord.<br>
+                    It was blood, it was,<br>
+                    which you had spilt, Lord.<br>
+                    It glittered.<br>
+                    It cast your image into our eyes, Lord.<br>
+                    Eyes and mouth hang so open and empty, Lord.<br>
+                    We have drunk, Lord.<br>
+                    The blood and the image within the blood, Lord.<br>
+                    Pray, Lord.<br>
+                    We are nigh.
+                </p>
+                <br>
+                <div class="commentBtn">
+                    <p> Comments </p>
+                </div>
+                <div class="comments" id="Paul4">
+                    <span class="inline-flex py-5 align-middle justify-items-center">
+                        <input class="commentContent" style="width:500px;height:35px;" type="text"
+                            placeholder="   Type comment..." required>
+                        <img src="images/message-arrow-up_9821556.png" style="width:40px;height:40px;margin-left: 10px;"
+                            onclick="addComments('Paul4')">
+                    </span>
+
+                </div>
+            </div>
+            <div class="poemsplus" id="Mandorla">
+                <p class="text-lg self--center font-semibold text-red-700">Mandorla</p><br>
+                <p class="poem">
+                    In the almond — what stands in the almond?<br>
+                    Nothing.<br>
+                    What stands in the almond is Nothing.<br>
+                    There it stands and stands.<br>
+                    In Nothing — what stands there? The King.<br>
+                    There the King stands, the King.<br>
+                    There he stands and stands.<br>
+                    Jew's curl, you'll not turn gray.<br>
+                    And your eye — what does your eye stand on?<br>
+                    On the almond your eye stands.<br>
+                    Your eye, on Nothing it stands.<br>
+                    Stands on the King, to him remains loyal, true.<br>
+                    So it stands and stands.<br>
+                    Human curl, you'll not turn gray.<br>
+                    Empty almond, royal-blue.
+                </p>
+                <br>
+                <div class="commentBtn">
+                    <p> Comments </p>
+                </div>
+                <div class="comments" id="Paul5">
+                    <span class="inline-flex py-5 align-middle justify-items-center">
+                        <input class="commentContent" style="width:500px;height:35px;" type="text"
+                            placeholder="   Type comment..." required>
+                        <img src="images/message-arrow-up_9821556.png" style="width:40px;height:40px;margin-left: 10px;"
+                            onclick="addComments('Paul5')">
+                    </span>
+
+                </div>
+            </div>
+            <div class="poemsplus" id="Imagine">
+                <p class="text-lg self--center font-semibold text-red-700">Imagine</p><br>
+                <p class="poem">
+                    Imagine:<br>
+                    the moorsoldier from Masada<br>
+                    teaches himself homeland, in<br>
+                    the most inextinguishable way,<br>
+                    against<br>
+                    all barbs in the wire.<br>
+                    Imagine:<br>
+                    the eyeless without shape<br>
+                    lead you free through the throng, you<br>
+                    grow stronger and<br>
+                    stronger.<br>
+                    Imagine: your<br>
+                    own hand<br>
+                    has held once<br>
+                    more this<br>
+                    into life resuffered<br>
+                    piece of<br>
+                    inhabitable earth.<br>
+                    Imagine:<br>
+                    that came towards me,<br>
+                    awake to the name, awake to the hand,<br>
+                    forever,<br>
+                    from what cannot be buried.
+                </p>
+                <br>
+                <div class="commentBtn">
+                    <p> Comments </p>
+                </div>
+                <div class="comments" id="Paul6">
+                    <span class="inline-flex py-5 align-middle justify-items-center">
+                        <input class="commentContent" style="width:500px;height:35px;" type="text"
+                            placeholder="   Type comment..." required>
+                        <img src="images/message-arrow-up_9821556.png" style="width:40px;height:40px;margin-left: 10px;"
+                            onclick="addComments('Paul6')">
+                    </span>
+
+                </div>
+            </div>
+            <div class="poemsplus" id="Fieldmouse">
+                <p class="text-lg self--center font-semibold text-red-700">WITH THE VOICE OF THE FIELDMOUSE</p><br>
+                <p class="poem">
+                    you squeak up,<br>
+                    a sharp<br>
+                    clamp,<br>
+                    you bite through the shirt into my skin,<br>
+                    a cloth,<br>
+                    you slide across my mouth,<br>
+                    midway through my<br>
+                    words weighing you, shadow,<br>
+                    down.
+                </p>
+                <br>
+                <div class="commentBtn">
+                    <p> Comments </p>
+                </div>
+                <div class="comments" id="Paul7">
+                    <span class="inline-flex py-5 align-middle justify-items-center">
+                        <input class="commentContent" style="width:500px;height:35px;" type="text"
+                            placeholder="   Type comment..." required>
+                        <img src="images/message-arrow-up_9821556.png" style="width:40px;height:40px;margin-left: 10px;"
+                            onclick="addComments('Paul7')">
+                    </span>
+
+                </div>
+            </div>
+            <div class="poemsplus" id="Strangeness">
+                <p class="text-lg self--center font-semibold text-red-700">Strangeness</p><br>
+                <p class="poem">
+                    has netted us,<br>
+                    transience reaches<br>
+                    helplessly through us,<br>
+                    take my pulse, it too,<br>
+                    into yourself,<br>
+                    then we shall prevail<br>
+                    against you, against me,<br>
+                    something enclothes us<br>
+                    in dayskin, in nightskin,<br>
+                    for the game with the highest, epileptic<br>
+                    seriousness.
+                </p>
+                <br>
+                <div class="commentBtn">
+                    <p> Comments </p>
+                </div>
+                <div class="comments" id="Paul8">
+                    <span class="inline-flex py-5 align-middle justify-items-center">
+                        <input class="commentContent" style="width:500px;height:35px;" type="text"
+                            placeholder="   Type comment..." required>
+                        <img src="images/message-arrow-up_9821556.png" style="width:40px;height:40px;margin-left: 10px;"
+                            onclick="addComments('Paul8')">
+                    </span>
+
+                </div>
+            </div>
+            <div class="poemsplus" id="VariableKey">
+                <p class="text-lg self--center font-semibold text-red-700">Variable Key</p><br>
+                <p class="poem">
+                    With a variable key<br>
+                    you unlock the house, in it<br>
+                    drifts the snow of the unsaid.<br>
+                    Depending on the blood that gushes<br>
+                    from your eye or mouth or ear,<br>
+                    your key varies.<br>
+                    Varies your key so varies your word<br>
+                    that's allowed to drift with the flakes.<br>
+                    Depending on the wind that pushes you away,<br>
+                    the snow cakes around the word.
+                </p>
+                <br>
+                <div class="commentBtn">
+                    <p> Comments </p>
+                </div>
+                <div class="comments" id="Paul9">
+                    <span class="inline-flex py-5 align-middle justify-items-center">
+                        <input class="commentContent" style="width:500px;height:35px;" type="text"
+                            placeholder="   Type comment..." required>
+                        <img src="images/message-arrow-up_9821556.png" style="width:40px;height:40px;margin-left: 10px;"
+                            onclick="addComments('Paul9')">
+                    </span>
+
+                </div>
+            </div>
+            <div class="poemsplus" id="Chord">
+                <p class="text-lg self--center font-semibold text-red-700">Chord</p><br>
+                <p class="poem">
+                    Birds leave behind <br>
+                    shadows in a nest <br>
+                    <br>
+                    so leave your lamp <br>
+                    instrument and book <br>
+                    <br>
+                    let us go to a hill <br>
+                    where air grows <br>
+                    <br>
+                    I will point out <br>
+                    the absent star <br>
+                    <br>
+                    tender rootlets <br>
+                    buried by turf <br>
+                    <br>
+                    springs of cloud <br>
+                    rising unsullied <br>
+                    <br>
+                    a wind lends its mouth <br>
+                    so that we might sing <br>
+                    <br>
+                    we’ll knit our brows <br>
+                    we won’t say a word <br>
+                    <br>
+                    clouds have haloes <br>
+                    just like the saints <br>
+                    <br>
+                    we have black pebbles <br>
+                    where eyes should be <br>
+                    <br>
+                    a good memory cures <br>
+                    the scar a loss leaves <br>
+                    <br>
+                    radiance may descend <br>
+                    down our bent backs <br>
+                    <br>
+                    verily verily I say unto you <br>
+                    great is the abyss <br>
+                    <br>
+                    between us <br>
+                    and the light<br>
+                </p>
+                <br>
+                <div class="commentBtn">
+                    <p> Comments </p>
+                </div>
+                <div class="comments" id="Zbigniew1">
+                    <span class="inline-flex py-5 align-middle justify-items-center">
+                        <input class="commentContent" style="width:500px;height:35px;" type="text"
+                            placeholder="   Type comment..." required>
+                        <img src="images/message-arrow-up_9821556.png" style="width:40px;height:40px;margin-left: 10px;"
+                            onclick="addComments('Zbigniew1')">
+                    </span>
+
+                </div>
+            </div>
+            <div class="poemsplus" id="WarsawCemetery">
+                <p class="text-lg self--center font-semibold text-red-700">Warsaw Cemetery</p><br>
+                <p class="poem">
+                    That wall <br>
+                    that last view <br>
+                    do not exist <br>
+                    lime on houses and tombs <br>
+                    lime on memory <br>
+                    the last echo of a salute <br>
+                    shaped into a stone slab <br>
+                    and a concise inscription <br>
+                    chiseled in calm antiqua <br>
+                    before the invasion of the living <br>
+                    the dead descend deeper <br>
+                    farther down <br>
+                    they wail at night in pipes of grief <br>
+                    they emerge cautiously <br>
+                    drop by drop <br>
+                    they light up one more time <br>
+                    at the striking of any match <br>
+                    and above ground there is peace <br>
+                    stone slabs and lime on memory <br>
+                    where the avenue of the living <br>
+                    intersects with the new world <br>
+                    under a proudly clicking heel <br>
+                    the cemetery like a molehill <br>
+                    gathers those who request <br>
+                    a hillock of friable earth <br>
+                    a slight sign from above
+                </p>
+                <br>
+                <div class="commentBtn">
+                    <p> Comments </p>
+                </div>
+                <div class="comments" id="Zbigniew2">
+                    <span class="inline-flex py-5 align-middle justify-items-center">
+                        <input class="commentContent" style="width:500px;height:35px;" type="text"
+                            placeholder="   Type comment..." required>
+                        <img src="images/message-arrow-up_9821556.png" style="width:40px;height:40px;margin-left: 10px;"
+                            onclick="addComments('Zbigniew2')">
+                    </span>
+
+                </div>
+            </div>
+            <div class="poemsplus" id="Testament">
+                <p class="text-lg self--center font-semibold text-red-700">Testament</p><br>
+                <p class="poem">
+                    I bequeath to the four elements <br>
+                    all I had in my brief possession <br><br>
+
+                    to fire-thought <br>
+                    may fire flourish <br>
+                    to the earth I loved too much <br>
+                    my body that fruitless kernel <br><br>
+
+                    and to the air words and hands <br>
+                    and longing superfluous things <br><br>
+
+                    all that remains <br>
+                    a drop of water <br>
+                    let it go between <br>
+                    the earth and sky <br><br>
+
+                    let it be transparent rain <br>
+                    frost's fern snow's petal <br><br>
+
+                    let he who never made heaven <br>
+                    return faithfully like pure dew <br><br>
+
+                    to the vale of tears of my earth <br>
+                    slowly crumbling the firm soil <br><br>
+
+                    soon I'll give back to four elements <br>
+                    all that I had in my brief possession <br><br>
+
+                    -I won't return to a source of peace
+                </p>
+                <br>
+                <div class="commentBtn">
+                    <p> Comments </p>
+                </div>
+                <div class="comments" id="Zbigniew3">
+                    <span class="inline-flex py-5 align-middle justify-items-center">
+                        <input class="commentContent" style="width:500px;height:35px;" type="text"
+                            placeholder="   Type comment..." required>
+                        <img src="images/message-arrow-up_9821556.png" style="width:40px;height:40px;margin-left: 10px;"
+                            onclick="addComments('Zbigniew3')">
+                    </span>
+
+                </div>
+            </div>
+            <div class="poemsplus" id="TremblesandHeavens">
+                <p class="text-lg self--center font-semibold text-red-700">Trembles and Heavens</p><br>
+                <p class="poem">
+                    The vast space of little planets<br>
+                    which consumes me like a sea<br>
+                    trembles and heaves with unrest<br><br>
+
+                    second hands trapped in pulses<br>
+                    like mill wheels in warm blood<br>
+                    trundle along the fleeting year<br> <br>
+
+                    the mute needle calls northward<br>
+                    over a swift stream of dark water<br>
+                    under transient clouds and skies<br> <br>
+
+                    bury nearing death in a wrinkle<br>
+                    you can't stop it with your brow<br>
+                    a desert drains mind and blood<br><br>
+
+                    from atoms points hairs comets<br>
+                    I construct my difficult infinity<br>
+                    under the mockeries of Aquilos<br>
+                    I build ports for frail endurance
+                </p>
+                <br>
+                <div class="commentBtn">
+                    <p> Comments </p>
+                </div>
+                <div class="comments" id="Zbigniew4">
+                    <span class="inline-flex py-5 align-middle justify-items-center">
+                        <input class="commentContent" style="width:500px;height:35px;" type="text"
+                            placeholder="   Type comment..." required>
+                        <img src="images/message-arrow-up_9821556.png" style="width:40px;height:40px;margin-left: 10px;"
+                            onclick="addComments('Zbigniew4')">
+                    </span>
+
+                </div>
+            </div>
+            <div class="poemsplus" id="TheSaltOfTheEarth">
+                <p class="text-lg self--center font-semibold text-red-700">The Salt Of The Earth</p><br>
+                <p class="poem">
+                    There goes a woman<br>
+                    her shawl dappled as a meadow<br>
+                    clasping a paper bag<br>
+                    against her chest<br>
+                    this takes place<br>
+                    at twelve noon<br>
+                    in the loveliest part of town<br>
+                    here tourists are shown<br>
+                    the park with the swan<br>
+                    the villas with gardens<br>
+                    perspectives and roses<br>
+                    There goes a woman<br>
+                    with a bulging bundle<br>
+                    —mother what are you cradling<br>
+                    now she’s tripped<br>
+                    and sugar crystals<br>
+                    tip out of the bag<br>
+                    the woman bends down<br>
+                    an expression in her eye<br>
+                    no painter of broken jugs<br>
+                    could ever convey<br>
+                    her dark hand grabs<br>
+                    the spilled treasures<br>
+                    and she pours back<br>
+                    bright drops and dust<br>
+                    How<br>
+                    longv<br>
+                    she<br>
+                    stays<br>
+                    down on her knees<br>
+                    as if she wished to gather<br>
+                    the sweetness of the earth<br>
+                    down to the very last grain
+                </p>
+                <br>
+                <div class="commentBtn">
+                    <p> Comments </p>
+                </div>
+                <div class="comments" id="Zbigniew5">
+                    <span class="inline-flex py-5 align-middle justify-items-center">
+                        <input class="commentContent" style="width:500px;height:35px;" type="text"
+                            placeholder="   Type comment..." required>
+                        <img src="images/message-arrow-up_9821556.png" style="width:40px;height:40px;margin-left: 10px;"
+                            onclick="addComments('Zbigniew5')">
+                    </span>
+
+                </div>
+            </div>
+            <div class="poemsplus" id="ToHisFist">
+                <p class="text-lg self--center font-semibold text-red-700">To His Fist</p><br>
+                <p class="poem">
+                    Five fingers straying over strings<br>
+                    and curling like iron in a flame<br>
+                    to a pomegranate dead embrace<br><br>
+
+                    ten fingers page boys of caresses<br>
+                    kneeling and tearing tender silk<br>
+                    they will die the death of leaves<br><br>
+
+                    a myriad fingers blooms of palms<br>
+                    weigh an open friendship a grain <br>
+                    and spin the cocoon of long days<br><br>
+
+                    then comes a great ruler threads<br>
+                    turn opaque friendship ensnares<br>
+                    empty words rattle in poppy-heads<br><br>
+
+                    then clotted blood in the banners<br>
+                    and the knot of fingers overhead<br>
+                    the same knot in the brain a fist<br><br>
+                </p>
+                <br>
+                <div class="commentBtn">
+                    <p> Comments </p>
+                </div>
+                <div class="comments" id="Zbigniew6">
+                    <span class="inline-flex py-5 align-middle justify-items-center">
+                        <input class="commentContent" style="width:500px;height:35px;" type="text"
+                            placeholder="   Type comment..." required>
+                        <img src="images/message-arrow-up_9821556.png" style="width:40px;height:40px;margin-left: 10px;"
+                            onclick="addComments('Zbigniew6')">
+                    </span>
+
+                </div>
+            </div>
+            <div class="poemsplus" id="ToTheHungarians">
+                <p class="text-lg self--center font-semibold text-red-700">To The Hungarians</p><br>
+                <p class="poem">
+                    We stand on the border<br>
+                    and hold out our arms<br>
+                    for our brothers for you<br>
+                    we tie a great rope of air<br><br>
+
+                    from a broken-off cry<br>
+                    from the fists clenched<br>
+                    a bell is cast a tongue<br>
+                    silent on the lookout<br>
+
+                    wounded stones plead<br>
+                    murdered water pleads<br>
+                    we stand on the border<br>
+                    we stand on the border<br><br>
+
+                    we stand on the border<br>
+                    that is called reason<br>
+                    and we gaze into a fire<br>
+                    and we marvel at death
+                </p>
+                <br>
+                <div class="commentBtn">
+                    <p> Comments </p>
+                </div>
+                <div class="comments" id="Zbigniew7">
+                    <span class="inline-flex py-5 align-middle justify-items-center">
+                        <input class="commentContent" style="width:500px;height:35px;" type="text"
+                            placeholder="   Type comment..." required>
+                        <img src="images/message-arrow-up_9821556.png" style="width:40px;height:40px;margin-left: 10px;"
+                            onclick="addComments('Zbigniew7')">
+                    </span>
+
+                </div>
+            </div>
+            <div class="poemsplus" id="Violin">
+                <p class="text-lg self--center font-semibold text-red-700">Violin</p><br>
+                <p class="poem">
+                    A violin is naked.<br>
+                    It has skinny little arms.<br>
+                    Clumsily it tries to cover itself with them.<br>
+                    It sobs for shame and cold.<br>
+                    That's why.<br>
+                    Not, as the music reviewers say, to make it more beautiful.<br>
+                    That's simply not true.
+                </p>
+                <br>
+                <div class="commentBtn">
+                    <p> Comments </p>
+                </div>
+                <div class="comments" id="Zbigniew8">
+                    <span class="inline-flex py-5 align-middle justify-items-center">
+                        <input class="commentContent" style="width:500px;height:35px;" type="text"
+                            placeholder="   Type comment..." required>
+                        <img src="images/message-arrow-up_9821556.png" style="width:40px;height:40px;margin-left: 10px;"
+                            onclick="addComments('Zbigniew8')">
+                    </span>
+
+                </div>
+            </div>
+            <div class="poemsplus" id="TheEnvoyofMrCogito">
+                <p class="text-lg self--center font-semibold text-red-700">The Envoy of Mr. Cogito</p><br>
+                <p class="poem">
+                    Go where those others went to the dark boundary<br>
+                    for the golden fleece of nothingness your last prize<br><br>
+
+                    go upright among those who are on their knees<br>
+                    among those with their backs turned and those toppled in the dust<br><br>
+
+                    you were saved not in order to live<br>
+                    you have little time you must give testimony<br><br>
+
+                    be courageous when the mind deceives you be courageous<br>
+                    in the final account only this is important<br><br>
+
+                    and let your helpless Anger be like the sea<br>
+                    whenever you hear the voice of the insulted and beaten<br><br>
+
+                    let your sister Scorn not leave you<br>
+                    for the informers executioners cowards—they will win<br>
+                    they will go to your funeral and with relief will throw a lump of earth<br>
+                    the woodborer will write your smoothed-over biography<br><br>
+
+                    and do not forgive truly it is not in your power<br>
+                    to forgive in the name of those betrayed at dawn<br><br>
+
+                    beware however of unnecessary pride<br>
+                    keep looking at your clown’s face in the mirror<br>
+                    repeat: I was called—weren’t there better ones than I<br><br>
+
+                    beware of dryness of heart love the morning spring<br>
+                    the bird with an unknown name the winter oak<br><br>
+
+                    light on a wall the splendour of the sky<br>
+                    they don’t need your warm breath<br>
+                    they are there to say: no one will console you<br><br>
+
+                    be vigilant—when the light on the mountains gives the sign—arise and go<br>
+                    as long as blood turns in the breast your dark star<br><br>
+
+                    repeat old incantations of humanity fables and legends<br>
+                    because this is how you will attain the good you will not attain<br>
+                    repeat great words repeat them stubbornly<br>
+                    like those crossing the desert who perished in the sand<br><br>
+
+                    and they will reward you with what they have at hand<br>
+                    with the whip of laughter with murder on a garbage heap<br><br>
+
+                    go because only in this way will you be admitted to the company of cold skulls<br>
+                    to the company of your ancestors: Gilgamesh Hector Roland<br>
+                    the defenders of the kingdom without limit and the city of ashes<br><br>
+
+                    Be faithful Go
+                </p>
+                <br>
+                <div class="commentBtn">
+                    <p> Comments </p>
+                </div>
+                <div class="comments" id="Zbigniew9">
+                    <span class="inline-flex py-5 align-middle justify-items-center">
+                        <input class="commentContent" style="width:500px;height:35px;" type="text"
+                            placeholder="   Type comment..." required>
+                        <img src="images/message-arrow-up_9821556.png" style="width:40px;height:40px;margin-left: 10px;"
+                            onclick="addComments('Zbigniew9')">
+                    </span>
+
+                </div>
+            </div>
+            <div class="poemsplus" id="Scheherazade">
+                <p class="text-lg self--center font-semibold text-red-700">Scheherazade</p><br>
+                <p class="poem">
+                    Tell me about the dream where we pull the bodies out of the lake<br>
+                    and dress them in warm clothes again.<br>
+                    How it was late, and no one could sleep, the horses running<br>
+                    until they forget that they are horses.<br>
+                    It's not like a tree where the roots have to end somewhere,<br>
+                    it's more like a song on a policeman's radio,<br>
+                    how we rolled up the carpet so we could dance, and the days<br>
+                    were bright red, and every time we kissed there was another apple<br>
+                    to slice into pieces.<br>
+                    Look at the light through the windowpane. That means it's noon, that means<br>
+                    we're inconsolable.<br>
+                    Tell me how all this, and love too, will ruin us.<br>
+                    These, our bodies, possessed by light.<br>
+                    Tell me we'll never get used to it.
+                </p>
+                <br>
+                <div class="commentBtn">
+                    <p> Comments </p>
+                </div>
+                <div class="comments" id="Siken1">
+                    <span class="inline-flex py-5 align-middle justify-items-center">
+                        <input class="commentContent" style="width:500px;height:35px;" type="text"
+                            placeholder="   Type comment..." required>
+                        <img src="images/message-arrow-up_9821556.png" style="width:40px;height:40px;margin-left: 10px;"
+                            onclick="addComments('Siken1')">
+                    </span>
+
+                </div>
+            </div>
+            <div class="poemsplus" id="VisibleWorld">
+                <p class="text-lg self--center font-semibold text-red-700">Visible World</p><br>
+                <p class="poem">
+                    Sunlight pouring across your skin, your shadow<br>
+                    flat on the wall.<br>
+                    The dawn was breaking the bones of your heart like twigs.<br>
+                    You had not expected this,<br>
+                    the bedroom gone white, the astronomical light<br>
+                    pummeling you in a stream of fists.<br>
+                    You raised your hand to your face as if<br>
+                    to hide it, the pink fingers gone gold as the light<br>
+                    streamed straight to the bone,<br>
+                    as if you were the small room closed in glass<br>
+                    with every speck of dust illuminated.<br>
+                    The light is no mystery,<br>
+                    the mystery is that there is something to keep the light<br>
+                    from passing through.
+                </p>
+                <br>
+                <div class="commentBtn">
+                    <p> Comments </p>
+                </div>
+                <div class="comments" id="Siken2">
+                    <span class="inline-flex py-5 align-middle justify-items-center">
+                        <input class="commentContent" style="width:500px;height:35px;" type="text"
+                            placeholder="   Type comment..." required>
+                        <img src="images/message-arrow-up_9821556.png" style="width:40px;height:40px;margin-left: 10px;"
+                            onclick="addComments('Siken2')">
+                    </span>
+
+                </div>
+            </div>
+            <div class="poemsplus" id="DetailOfTheHayfield">
+                <p class="text-lg self--center font-semibold text-red-700">Detail of The Hayfield</p><br>
+                <p class="poem">
+                    I followed myself for a long while, deep into the field.<br>
+                    Two heads full of garbage.<br><br>
+
+                    Our scope was larger than I realized,<br>
+                    which only made me that much more responsible.<br><br>
+
+                    Yellow, yellow, gold, and ocher.<br>
+                    We stopped. We held the field. We stood very still.<br><br>
+
+                    Everyone needs a place.<br><br>
+
+                    You need it for the moment you need it, then you bless it-<br>
+                    thank you soup, thank you flashlight-<br><br>
+
+                    and move on. Who does this? No one.
+                </p>
+                <br>
+                <div class="commentBtn">
+                    <p> Comments </p>
+                </div>
+                <div class="comments" id="Siken3">
+                    <span class="inline-flex py-5 align-middle justify-items-center">
+                        <input class="commentContent" style="width:500px;height:35px;" type="text"
+                            placeholder="   Type comment..." required>
+                        <img src="images/message-arrow-up_9821556.png" style="width:40px;height:40px;margin-left: 10px;"
+                            onclick="addComments('Siken3')">
+                    </span>
+
+                </div>
+            </div>
+            <div class="poemsplus" id="DetailOfTheFire">
+                <p class="text-lg self--center font-semibold text-red-700">Detail of The Fire</p><br>
+                <p class="poem">
+                    A man with a bandage is in the middle of something.<br>
+                    Everyone understands this. Everyone wants a battlefield.<br> <br>
+
+                    Red. And a little more red.<br><br>
+
+                    Accidents never happen when the room is empty.<br>
+                    Everyone understands this. Everyone needs a place.<br> <br>
+
+                    People like to think war means something.<br> <br>
+
+                    What can you learn from your opponent? More than you think.<br>
+                    Who will master this love? Love might be the wrong word.<br> <br>
+
+                    Let's admit, without apology, what we do to each other. <br>
+                    We know who our enemies are. We know.
+                </p>
+                <br>
+                <div class="commentBtn">
+                    <p> Comments </p>
+                </div>
+                <div class="comments" id="Siken4">
+                    <span class="inline-flex py-5 align-middle justify-items-center">
+                        <input class="commentContent" style="width:500px;height:35px;" type="text"
+                            placeholder="   Type comment..." required>
+                        <img src="images/message-arrow-up_9821556.png" style="width:40px;height:40px;margin-left: 10px;"
+                            onclick="addComments('Siken4')">
+                    </span>
+
+                </div>
+            </div>
+            <div class="poemsplus" id="Logic">
+                <p class="text-lg self--center font-semibold text-red-700">Logic</p><br>
+                <p class="poem">
+                    A clock is a machine. A gear is a tool. There is rarely<br>
+                    any joy in a frictionless place, so find your inner viscosity.<br>
+                    The mind says viscosity is resistance to flow. The body<br>
+                    puts glue on a twig and catches a bird. Glue is a tool,<br>
+                    unless you are a bird. If you are a bird, then glue is<br>
+                    an inconvenience. A tool does work. A bird flies away<br>
+                    from danger and lands where it can. All thinking is<br>
+                    comparison. A bear is a weapon, a bear claw is a pastry.<br>
+                    A bear trap, if you are a bear, is an inconvenience.<br>
+                    Logic is boring because it works. Being unreasonable is<br>
+                    exciting. Machines have knobs you can turn if you<br>
+                    want to. A hammer is a hammer when it hits the nail.<br>
+                    A hammer is not a hammer when it is sleeping. I woke<br>
+                    up tired of being the hammer. There's a dream in the<br>
+                    space between the hammer and the nail: the dream of<br>
+                    about-to-be-hit, which is a bad dream, but the nail will<br>
+                    take the hit if it gets to sleep inside the wood forever.<br>
+                    I taped a sword to my hand when I was younger. This<br>
+                    is an argument about goals.
+                </p>
+                <br>
+                <div class="commentBtn">
+                    <p> Comments </p>
+                </div>
+                <div class="comments" id="Siken5">
+                    <span class="inline-flex py-5 align-middle justify-items-center">
+                        <input class="commentContent" style="width:500px;height:35px;" type="text"
+                            placeholder="   Type comment..." required>
+                        <img src="images/message-arrow-up_9821556.png" style="width:40px;height:40px;margin-left: 10px;"
+                            onclick="addComments('Siken5')">
+                    </span>
+
+                </div>
+            </div>
+            <div class="poemsplus" id="LoveSongOfTheSquareRootOfNegativeOne">
+                <p class="text-lg self--center font-semibold text-red-700">Love Song of The Square Root of Negative One
+                </p>
+                <br>
+                <p class="poem">
+                    I am the wind and the wind is invisible, all the leaves<br>
+                    tremble but I am invisible, bloom without flower, knot<br>
+                    without rope, song without throat in wingless flight, dark<br>
+                    boat in the dark night, pure velocity. As the hammer is a<br>
+                    hammer when it hits the nail, and the nail is a nail when<br>
+                    it meets the wood, and the invisible table begins to appear<br>
+                    out of mind, pure mind, out of nothing, pure thinking.<br>
+                    Through darkness, through silence, a vector a violence,<br>
+                    I labor, I lumber, I fumble forward through the valley as<br>
+                    winter, as water, I mist and frost, flexible and elastic to<br>
+                    the task. I am the hand that lifts the rock, I am the mind<br>
+                    that strings the worm and throws the line and feels the tug,<br>
+                    the flex in the pole, and foot by foot I find the groove,<br>
+                    the trace in the thicket, the key in the lock, as root breaks<br>
+                    rock, from seed to flower to fruit to rot, a holy pilgrim<br>
+                    moving through the stations of the yardstick. I track,<br>
+                    I follow, I hinge and turn, frictionless and efficient as an<br>
+                    equal sign. I flip and fold, I superimpose, I become<br>
+                    location and you veer toward me, the eye to which you<br>
+                    are relative, magnetized for you revelation. Hook and bait,<br>
+                    polestar and checkmate, I am your arrival, there is no<br>
+                    refusal, we are here, you see, together, we are already here.
+                </p>
+                <br>
+                <div class="commentBtn">
+                    <p> Comments </p>
+                </div>
+                <div class="comments" id="Siken6">
+                    <span class="inline-flex py-5 align-middle justify-items-center">
+                        <input class="commentContent" style="width:500px;height:35px;" type="text"
+                            placeholder="   Type comment..." required>
+                        <img src="images/message-arrow-up_9821556.png" style="width:40px;height:40px;margin-left: 10px;"
+                            onclick="addComments('Siken6')">
+                    </span>
+
+                </div>
+            </div>
+            <div class="poemsplus" id="TheMysteryOfThePears">
+                <p class="text-lg self--center font-semibold text-red-700">The Mystery Of The Pears</p><br>
+                <p class="poem">
+                    I looked at the pears. I painted the pears, what they<br>
+                    were like. I waited for the pears to reveal their<br>
+                    mystery. Five brown pears in a chipped white bowl,<br>
+                    soft and scarred and blushing yellow in the throbbing<br>
+                    dark. They shine in their suits. I hung them on<br>
+                    the wall. Precise. A landmark. You might like it here.<br>
+                    I think that you might like it here.
+                </p>
+                <br>
+                <div class="commentBtn">
+                    <p> Comments </p>
+                </div>
+                <div class="comments" id="Siken7">
+                    <span class="inline-flex py-5 align-middle justify-items-center">
+                        <input class="commentContent" style="width:500px;height:35px;" type="text"
+                            placeholder="   Type comment..." required>
+                        <img src="images/message-arrow-up_9821556.png" style="width:40px;height:40px;margin-left: 10px;"
+                            onclick="addComments('Siken7')">
+                    </span>
+
+                </div>
+            </div>
+            <div class="poemsplus" id="DotsEverywhere">
+                <p class="text-lg self--center font-semibold text-red-700">Dots Everywhere</p><br>
+                <p class="poem">
+                    I erased my legs and forgot to draw in the stilts.<br><br>
+
+                    It looks like I’m floating but I’m not floating.<br><br>
+
+                    Sometimes I draw you with fangs. I tell you these<br><br>
+
+                    things because I love you. Some people paint<br><br>
+
+                    with whiskey and call it social drinking. Some people<br><br>
+
+                    paint drunk and put dots of color everywhere.<br><br>
+
+                    In the morning the dots make them happy. I am<br><br>
+
+                    putting dots of color everywhere and you are sleeping.<br><br>
+
+                    Something has happened in the paint tonight and<br><br>
+
+                    it is worth keeping. It’s nothing like I thought it<br><br>
+
+                    would be and closer to what I meant. None of it is<br><br>
+
+                    real, darling. I say it to you. Maybe we will wake up<br><br>
+
+                    singing. Maybe we will wake up to the silence<br><br>
+
+                    of shoes at the foot of the bed not going anywhere.
+                </p>
+                <br>
+                <div class="commentBtn">
+                    <p> Comments </p>
+                </div>
+                <div class="comments" id="Siken8">
+                    <span class="inline-flex py-5 align-middle justify-items-center">
+                        <input class="commentContent" style="width:500px;height:35px;" type="text"
+                            placeholder="   Type comment..." required>
+                        <img src="images/message-arrow-up_9821556.png" style="width:40px;height:40px;margin-left: 10px;"
+                            onclick="addComments('Siken8')">
+                    </span>
+
+                </div>
+            </div>
+            <div class="poemsplus" id="Turpentine">
+                <p class="text-lg self--center font-semibold text-red-700">Turpentine</p><br>
+                <p class="poem">
+                    It is too heavy, says the canvas. You lack restraint.<br>
+                    I was sleeping in whiteness, drifts of snow,<br>
+                    and you woke me and told me your dream, my blank<br>
+                    face upturned, listening. You came to me while we<br>
+                    were sleeping, we were both sleeping, and you asked me<br>
+                    to hold this for you. I am holding this for you.<br>
+                </p>
+                <br>
+                <div class="commentBtn">
+                    <p> Comments </p>
+                </div>
+                <div class="comments" id="Siken9">
+                    <span class="inline-flex py-5 align-middle justify-items-center">
+                        <input class="commentContent" style="width:500px;height:35px;" type="text"
+                            placeholder="   Type comment..." required>
+                        <img src="images/message-arrow-up_9821556.png" style="width:40px;height:40px;margin-left: 10px;"
+                            onclick="addComments('Siken9')">
+                    </span>
+
+                </div>
+            </div>
+            <div class="poemsplus" id="HymnToBeauty">
+                <p class="text-lg self--center font-semibold text-red-700">Hymn to Beauty</p><br>
+                <p class="poem">
+                    Do you come from Heaven or rise from the abyss,<br>
+                    Beauty? Your gaze, divine and infernal,<br>
+                    Pours out confusedly benevolence and crime,<br>
+                    And one may for that, compare you to wine.<br>
+                    You contain in your eyes the sunset and the dawn;<br>
+                    You scatter perfumes like a stormy night;<br>
+                    Your kisses are a philtre, your mouth an amphora,<br>
+                    Which make the hero weak and the child courageous.<br>
+                    Do you come from the stars or rise from the black pit?<br>
+                    Destiny, bewitched, follows your skirts like a dog;<br>
+                    You sow at random joy and disaster,<br>
+                    And you govern all things but answer for nothing.<br>
+                    You walk upon corpses which you mock, O Beauty!<br>
+                    Of your jewels Horror is not the least charming,<br>
+                    And Murder, among your dearest trinkets,<br>
+                    Dances amorously upon your proud belly.<br>
+                    The dazzled moth flies toward you, O candle!<br>
+                    Crepitates, flames and says: "Blessed be this flambeau!"<br>
+                    The panting lover bending o'er his fair one<br>
+                    Looks like a dying man caressing his own tomb,<br>
+                    Whether you come from heaven or from hell, who cares,<br>
+                    O Beauty! Huge, fearful, ingenuous monster!<br>
+                    If your regard, your smile, your foot, open for me<br>
+                    An Infinite I love but have not ever known?<br>
+                    From God or Satan, who cares? Angel or Siren,<br>
+                    Who cares, if you make, — fay with the velvet eyes,<br>
+                    Rhythm, perfume, glimmer; my one and only queen!<br>
+                    The world less hideous, the minutes less leaden?
+                </p>
+                <br>
+                <div class="commentBtn">
+                    <p> Comments </p>
+                </div>
+                <div class="comments" id="Bodler1">
+                    <span class="inline-flex py-5 align-middle justify-items-center">
+                        <input class="commentContent" style="width:500px;height:35px;" type="text"
+                            placeholder="   Type comment..." required>
+                        <img src="images/message-arrow-up_9821556.png" style="width:40px;height:40px;margin-left: 10px;"
+                            onclick="addComments('Bodler1')">
+                    </span>
+
+                </div>
+            </div>
+            <div class="poemsplus" id="Spleen">
+                <p class="text-lg self--center font-semibold text-red-700">Spleen</p><br>
+                <p class="poem">
+                    I am like the king of a rainy country<br>
+                    Rich, and yet powerless, young and yet most old<br>
+                    Who, distrustful of the bows his tutors make<br>
+                    Sits bored among his dogs as with his other beasts<br>
+                    Nothing can lift his spirits, neither hawk nor game<br>
+                    The dying subjects gathered to his balcony.<br>
+                    The grotesque ballad of his best-loved fool<br>
+                    No more distracts him in this sickness cruel.<br>
+                    His lilied bed is changed into a tomb;<br>
+                    The ladies of his court all lords might<br>
+                    And yet they can no longer find shameless attire<br>
+                    To draw a smile from their young, wasted sire.<br>
+                    The alchemist who made him gold could not<br>
+                    Purge from his soul this corrupt elementv<br>
+                    And in a blood bath, as in ancient Rome,<br>
+                    Remembered by the mighty in their latter days<br>
+                    Knew not to warm this dazzled corpse<br>
+                    Where flows not blood but Lethe's waters green.
+                </p>
+                <br>
+                <div class="commentBtn">
+                    <p> Comments </p>
+                </div>
+                <div class="comments" id="Bodler3">
+                    <span class="inline-flex py-5 align-middle justify-items-center">
+                        <input class="commentContent" style="width:500px;height:35px;" type="text"
+                            placeholder="   Type comment..." required>
+                        <img src="images/message-arrow-up_9821556.png" style="width:40px;height:40px;margin-left: 10px;"
+                            onclick="addComments('Bodler3')">
+                    </span>
+
+                </div>
+            </div>
+            <div class="poemsplus" id="TheEndOfTheDay">
+                <p class="text-lg self--center font-semibold text-red-700">The End of The Day</p><br>
+                <p class="poem">
+                    In all its raucous impudence<br>
+                    Life writhes, cavorts in pallid light,<br>
+                    With little cause or consequence;<br>
+                    And when, with darkling skies, the night<br><br>
+
+                    Casts over all its sensuous balm,<br>
+                    Quells hunger's pangs and, in like wise,<br>
+                    Quells shame beneath its pall of calm,<br>
+                    "Aha, at last!" the Poet sighs.<br><br>
+
+                    "My mind, my bones, yearn, clamoringv
+                    For sweet repose unburdening.<br>
+                    Heart full of dire, funeral thought,<br><br>
+
+                    I will lie out; your folds will cling<br>
+                    About me: veils of shadow wrought,<br>
+                    O darkness, cool and comforting!"
+                </p>
+                <br>
+                <div class="commentBtn">
+                    <p> Comments </p>
+                </div>
+                <div class="comments" id="Bodler4">
+                    <span class="inline-flex py-5 align-middle justify-items-center">
+                        <input class="commentContent" style="width:500px;height:35px;" type="text"
+                            placeholder="   Type comment..." required>
+                        <img src="images/message-arrow-up_9821556.png" style="width:40px;height:40px;margin-left: 10px;"
+                            onclick="addComments('Bodler4')">
+                    </span>
+
+                </div>
+            </div>
+            <div class="poemsplus" id="TheProfundisClamavi">
+                <p class="text-lg self--center font-semibold text-red-700">The Profundis Clamavi</p><br>
+                <p class="poem">
+                    Have pity, You alone whom I adore<br>
+                    From down this black pit where my heart is sped,<br>
+                    A sombre universe ringed round with lead<br>
+                    Where fear and curses the long night explore.<br><br>
+
+                    Six months a cold sun hovers overhead;<br>
+                    The other six is night upon this land.<br>
+                    No beast; no stream; no wood; no leaves expand.<br>
+                    The desert Pole is not a waste so dead.<br><br>
+
+                    Now in the whole world there's no horror quite<br>
+                    so cold and cruel as this glacial sun,<br>
+                    So like old Chaos as this boundless night;<br><br>
+
+                    I envy the least animals that run,<br>
+                    Which can find respite in brute slumber drowned,<br>
+                    So slowly is the skein of time unwound.
+                </p>
+                <br>
+                <div class="commentBtn">
+                    <p> Comments </p>
+                </div>
+                <div class="comments" id="Bodler5">
+                    <span class="inline-flex py-5 align-middle justify-items-center">
+                        <input class="commentContent" style="width:500px;height:35px;" type="text"
+                            placeholder="   Type comment..." required>
+                        <img src="images/message-arrow-up_9821556.png" style="width:40px;height:40px;margin-left: 10px;"
+                            onclick="addComments('Bodler5')">
+                    </span>
+
+                </div>
+            </div>
+            <div class="poemsplus" id="Cats">
+                <p class="text-lg self--center font-semibold text-red-700">Cats</p><br>
+                <p class="poem">
+                    Fevered lovers and austere thinkers<br>
+                    Love equally, in their ripe season<br>
+                    Cats powerful and gentle, pride of the house<br>
+                    Like them they feel the cold, like them are sedentary<br><br>
+
+                    Friends of science and sensuality<br>
+                    They seek the silence and the horror of the shadows<br>
+                    Erebus had taken them for its funeral coursers<br>
+                    Could they to servitude incline their pride.<br><br>
+
+                    Dreaming, they take on noble postures<br>
+                    Great sphinxes stretched out in the depths of emptiness<br>
+                    Seeming to fall asleep into an endless dream.<br><br>
+
+                    Their fertile loins are full of magic sparks<br>
+                    And nuggets of gold like fine sand<br>
+                    Vaguely bestar their mystic pupils.
+                </p>
+                <br>
+                <div class="commentBtn">
+                    <p> Comments </p>
+                </div>
+                <div class="comments" id="Bodler6">
+                    <span class="inline-flex py-5 align-middle justify-items-center">
+                        <input class="commentContent" style="width:500px;height:35px;" type="text"
+                            placeholder="   Type comment..." required>
+                        <img src="images/message-arrow-up_9821556.png" style="width:40px;height:40px;margin-left: 10px;"
+                            onclick="addComments('Bodler6')">
+                    </span>
+
+                </div>
+            </div>
+            <div class="poemsplus" id="Beauty">
+                <p class="text-lg self--center font-semibold text-red-700">Beauty</p><br>
+                <p class="poem">
+                    Conceive me as a dream of stone:<br>
+                    my breast, where mortals come to grief,<br>
+                    is made to prompt all poets' love,<br>
+                    mute and noble as matter itself.<br><br>
+
+                    With snow for flesh, with ice for heart,<br>
+                    I sit on high, an unguessed sphinx<br>
+                    begrudging acts that alter forms;<br>
+                    I never laugh, I never weep.<br><br>
+
+                    In studious awe the poets brood<br>
+                    before my monumental pose<br>
+                    aped from the proudest pedestal,<br>
+                    and to bind these docile lovers fast<br>
+                    I freeze the world in a perfect mirror:<br><br>
+
+                    The timeless light of my wide eyes
+                </p>
+                <br>
+                <div class="commentBtn">
+                    <p> Comments </p>
+                </div>
+                <div class="comments" id="Bodler7">
+                    <span class="inline-flex py-5 align-middle justify-items-center">
+                        <input class="commentContent" style="width:500px;height:35px;" type="text"
+                            placeholder="   Type comment..." required>
+                        <img src="images/message-arrow-up_9821556.png" style="width:40px;height:40px;margin-left: 10px;"
+                            onclick="addComments('Bodler7')">
+                    </span>
+
+                </div>
+            </div>
+            <div class="poemsplus" id="SorrowsOfTheMoon">
+                <p class="text-lg self--center font-semibold text-red-700">Sorrows Of The Moon</p><br>
+                <p class="poem">
+                    Tonight the moon dreams in a deeper languidness,<br>
+                    And, like a beauty on her cushions, lies at rest;<br>
+                    While drifting off to sleep, a tentative caress<br>
+                    Seeks, with a gentle hand, the contour of her breast;<br><br>
+
+                    As on a crest above her silken avalanche,<br>
+                    Dying, she yields herself to an unending swoon,<br>
+                    And sees a pallid vision everywhere she’d glance,<br>
+                    In the azure sky where blossoms have been strewn.<br><br>
+
+                    When sometime, in her weariness, upon her sphere<br>
+                    She might permit herself to sheda furtive tear,<br>
+                    A poet of great piety, a foe of sleep,<br><br>
+
+                    Catches in the hollow of his hand that tear,<br>
+                    An opal fragment, iridescent as a star;<br>
+                    Within his heart, far from the sun, it’s buried deep.
+                </p>
+                <br>
+                <div class="commentBtn">
+                    <p> Comments </p>
+                </div>
+                <div class="comments" id="Bodler8">
+                    <span class="inline-flex py-5 align-middle justify-items-center">
+                        <input class="commentContent" style="width:500px;height:35px;" type="text"
+                            placeholder="   Type comment..." required>
+                        <img src="images/message-arrow-up_9821556.png" style="width:40px;height:40px;margin-left: 10px;"
+                            onclick="addComments('Bodler8')">
+                    </span>
+
+                </div>
+            </div>
+            <div class="poemsplus" id="TheBadMonk">
+                <p class="text-lg self--center font-semibold text-red-700">The Bad Monk</p><br>
+                <p class="poem">
+                    On the great walls of ancient cloisters were nailed<br>
+                    Murals displaying Truth the saint,<br>
+                    Whose effect, reheating the pious entrails<br>
+                    Brought to an austere chill a warming paint.<br><br>
+
+                    In the times when Christ was seeded around,<br>
+                    More than one illustrious monk, today unknown<br>
+                    Took for a studio the funeral grounds<br>
+                    And glorified Death as the one way shown.<br><br>
+
+                    —My soul is a tomb, an empty confine<br>
+                    Since eternity I scour and I reside;<br>
+                    Nothing hangs on the walls of this hideous sty.<br><br>
+
+                    O lazy monk! When will I see<br>
+                    The living spectacle of my misery,<br>
+                    The work of my hands and the love of my eyes?
+                </p>
+                <br>
+                <div class="commentBtn">
+                    <p> Comments </p>
+                </div>
+                <div class="comments" id="Bodler9">
+                    <span class="inline-flex py-5 align-middle justify-items-center">
+                        <input class="commentContent" style="width:500px;height:35px;" type="text"
+                            placeholder="   Type comment..." required>
+                        <img src="images/message-arrow-up_9821556.png" style="width:40px;height:40px;margin-left: 10px;"
+                            onclick="addComments('Bodler9')">
+                    </span>
+
+                </div>
+            </div>
+            <div class="poemsplus" id="Alone">
+                <p class="text-lg self--center font-semibold text-red-700">Alone</p><br>
+                <p class="poem">
+                    From childhood's hour I have not been<br>
+                    As others were -- I have not seen<br>
+                    As others saw -- I could not bring<br>
+                    My passions from a common spring --<br>
+                    From the same source I have not taken<br>
+                    My sorrow -- I could not awaken<br>
+                    My heart to joy at the same tone --<br>
+                    And all I lov'd -- I lov'd alone --<br>
+                    Then -- in my childhood -- in the dawn<br>
+                    Of a most stormy life -- was drawn<br>
+                    From ev'ry depth of good and ill<br>
+                    The mystery which binds me still --<br>
+                    From the torrent, or the fountain --<br>
+                    From the red cliff of the mountain --<br>
+                    From the sun that 'round me roll'd<br>
+                    In its autumn tint of gold --<br>
+                    From the lightning in the sky<br>
+                    As it pass'd me flying by --<br>
+                    From the thunder, and the storm --<br>
+                    And the cloud that took the formv<br>
+                    (When the rest of Heaven was blue)<br>
+                    Of a demon in my view --
+                </p>
+                <br>
+                <div class="commentBtn">
+                    <p> Comments </p>
+                </div>
+                <div class="comments" id="Edgar1">
+                    <span class="inline-flex py-5 align-middle justify-items-center">
+                        <input class="commentContent" style="width:500px;height:35px;" type="text"
+                            placeholder="   Type comment..." required>
+                        <img src="images/message-arrow-up_9821556.png" style="width:40px;height:40px;margin-left: 10px;"
+                            onclick="addComments('Edgar1')">
+                    </span>
+
+                </div>
+            </div>
+            <div class="poemsplus" id="AnnabelLee">
+                <p class="text-lg self--center font-semibold text-red-700">Annabell Lee</p><br>
+                <p class="poem">
+                    It was many and many a year ago,<br>
+                    In a kingdom by the sea,<br>
+                    That a maiden there lived whom you may know<br>
+                    By the name of ANNABEL LEE;--<br>
+                    And this maiden she lived with no other thought<br>
+                    Than to love and be loved by me.<br>
+                    She was a child and I was a child,<br>
+                    In this kingdom by the sea,<br>
+                    But we loved with a love that was more than love--<br>
+                    I and my Annabel Lee--<br>
+                    With a love that the winged seraphs of heaven<br>
+                    Coveted her and me.<br><br>
+
+                    And this was the reason that, long ago,<br>
+                    In this kingdom by the sea,<br>
+                    A wind blew out of a cloud by night<br>
+                    Chilling my Annabel Lee;<br>
+                    So that her high-born kinsman came<br>
+                    And bore her away from me,<br>
+                    To shut her up in a sepulchre<br>
+                    In this kingdom by the sea.<br><br>
+
+                    The angels, not half so happy in Heaven,<br>
+                    Went envying her and me:--<br>
+                    Yes! that was the reason (as all men know,<br>
+                    In this kingdom by the sea)<br>
+                    That the wind came out of a cloud, chilling<br>
+                    And killing my Annabel Lee.<br><br>
+
+                    But our love it was stronger by far than the love<br>
+                    Of those who were older than we--<br>
+                    Of many far wiser than we-<br>
+                    And neither the angels in Heaven above,<br>
+                    Nor the demons down under the sea,<br>
+                    Can ever dissever my soul from the soul<br>
+                    Of the beautiful Annabel Lee:--<br><br>
+
+                    For the moon never beams without bringing me dreams<br>
+                    Of the beautiful Annabel Lee;<br>
+                    And the stars never rise but I see the bright eyes<br>
+                    Of the beautiful Annabel Lee;<br>
+                    And so, all the night-tide, I lie down by the side<br>
+                    Of my darling, my darling, my life and my bride,<br>
+                    In her sepulchre there by the sea--<br>
+                    In her tomb by the side of the sea.
+                </p>
+                <br>
+                <div class="commentBtn">
+                    <p> Comments </p>
+                </div>
+                <div class="comments" id="Edgar2">
+                    <span class="inline-flex py-5 align-middle justify-items-center">
+                        <input class="commentContent" style="width:500px;height:35px;" type="text"
+                            placeholder="   Type comment..." required>
+                        <img src="images/message-arrow-up_9821556.png" style="width:40px;height:40px;margin-left: 10px;"
+                            onclick="addComments('Edgar2')">
+                    </span>
+
+                </div>
+            </div>
+            <div class="poemsplus" id="ADreamWithinADream">
+                <p class="text-lg self--center font-semibold text-red-700">A Dream Within A Dream</p><br>
+                <p class="poem">
+                    Take this kiss upon the brow!<br>
+                    And, in parting from you now,<br>
+                    Thus much let me avow --<br>
+                    You are not wrong, who deem<br>
+                    That my days have been a dream;<br>
+                    Yet if hope has flown away<br>
+                    In a night, or in a day,<br>
+                    In a vision, or in none,<br>
+                    Is it therefore the less gone?<br>
+                    All that we see or seem<br>
+                    Is but a dream within a dream.<br><br>
+
+                    I stand amid the roar<br>
+                    Of a surf-tormented shore,<br>
+                    And I hold within my hand<br>
+                    Grains of the golden sand --<br>
+                    How few! yet how they creep<br>
+                    Through my fingers to the deep,<br>
+                    While I weep -- while I weep!<br>
+                    O God! can I not grasp<br>
+                    Them with a tighter clasp?<br>
+                    O God! can I not save<br>
+                    One from the pitiless wave?<br>
+                    Is all that we see or seem<br>
+                    But a dream within a dream?
+                </p>
+                <br>
+                <div class="commentBtn">
+                    <p> Comments </p>
+                </div>
+                <div class="comments" id="Edgar3">
+                    <span class="inline-flex py-5 align-middle justify-items-center">
+                        <input class="commentContent" style="width:500px;height:35px;" type="text"
+                            placeholder="   Type comment..." required>
+                        <img src="images/message-arrow-up_9821556.png" style="width:40px;height:40px;margin-left: 10px;"
+                            onclick="addComments('Edgar3')">
+                    </span>
+
+                </div>
+            </div>
+            <div class="poemsplus" id="Sonnet">
+                <p class="text-lg self--center font-semibold text-red-700">Sonnet</p><br>
+                <p class="poem">
+                    SCIENCE! true daughter of Old Time thou art!<br>
+                    Who alterest all things with thy peering eyes.<br>
+                    Why preyest thou thus upon the poet’s heart,<br>
+                    Vulture, whose wings are dull realities?<br>
+                    How should he love thee? or how deem thee wise,<br>
+                    Who wouldst not leave him in his wandering<br>
+                    To seek for treasure in the jewelled skies<br>
+                    Albeit he soared with an undaunted wing?<br>
+                    And driven the Hamadryad from the wood<br>
+                    To seek a shelter in some happier star?<br>
+                    Hast thou not torn the Naiad from her flood,<br>
+                    The Elfin from the green grass, and from me<br>
+                    The summer dream beneath the tamarind tree?<br>
+                </p>
+                <br>
+                <div class="commentBtn">
+                    <p> Comments </p>
+                </div>
+                <div class="comments" id="Edgar4">
+                    <span class="inline-flex py-5 align-middle justify-items-center">
+                        <input class="commentContent" style="width:500px;height:35px;" type="text"
+                            placeholder="   Type comment..." required>
+                        <img src="images/message-arrow-up_9821556.png" style="width:40px;height:40px;margin-left: 10px;"
+                            onclick="addComments('Edgar4')">
+                    </span>
+
+                </div>
+            </div>
+            <div class="poemsplus" id="TheRaven">
+                <p class="text-lg self--center font-semibold text-red-700">The Raven</p><br>
+                <p class="poem">
+                    Once upon a midnight dreary, while I pondered, weak and weary,<br>
+                    Over many a quaint and curious volume of forgotten lore,<br>
+                    While I nodded, nearly napping, suddenly there came a tapping,<br>
+                    As of some one gently rapping, rapping at my chamber door.<br>
+                    "'Tis some visitor," I muttered, "tapping at my chamber door-<br>
+                    Only this, and nothing more."<br><br>
+
+                    Ah, distinctly I remember it was in the bleak December,<br>
+                    And each separate dying ember wrought its ghost upon the floor.<br>
+                    Eagerly I wished the morrow;- vainly I had sought to borrow<br>
+                    From my books surcease of sorrow- sorrow for the lost Lenore-<br>
+                    For the rare and radiant maiden whom the angels name Lenore-<br>
+                    Nameless here for evermore.<br><br>
+
+                    And the silken, sad, uncertain rustling of each purple curtain<br>
+                    Thrilled me- filled me with fantastic terrors never felt before;<br>
+                    So that now, to still the beating of my heart, I stood repeating,<br>
+                    "'Tis some visitor entreating entrance at my chamber door-<br>
+                    Some late visitor entreating entrance at my chamber door;-<br>
+                    This it is, and nothing more."<br><br>
+
+                    Presently my soul grew stronger; hesitating then no longer,<br>
+                    "Sir," said I, "or Madam, truly your forgiveness I implore;<br>
+                    But the fact is I was napping, and so gently you came rapping,<br>
+                    And so faintly you came tapping, tapping at my chamber door,<br>
+                    That I scarce was sure I heard you"- here I opened wide the door;-<br>
+                    Darkness there, and nothing more.<br><br>
+
+                    Deep into that darkness peering, long I stood there wondering, fearing,<br>
+                    Doubting, dreaming dreams no mortal ever dared to dream before;<br>
+                    But the silence was unbroken, and the stillness gave no token,<br>
+                    And the only word there spoken was the whispered word, "Lenore?"<br>
+                    This I whispered, and an echo murmured back the word, "Lenore!"-<br>
+                    Merely this, and nothing more.<br><br>
+
+                    Back into the chamber turning, all my soul within me burning,<br>
+                    Soon again I heard a tapping somewhat louder than before.<br>
+                    "Surely," said I, "surely that is something at my window lattice:<br>
+                    Let me see, then, what thereat is, and this mystery explore-<br>
+                    Let my heart be still a moment and this mystery explore;-<br>
+                    'Tis the wind and nothing more!"<br><br>
+
+                    Open here I flung the shutter, when, with many a flirt and flutter,<br>
+                    In there stepped a stately Raven of the saintly days of yore;<br>
+                    Not the least obeisance made he; not a minute stopped or stayed he;<br>
+                    But, with mien of lord or lady, perched above my chamber door-<br>
+                    Perched upon a bust of Pallas just above my chamber door-<br>
+                    Perched, and sat, and nothing more.<br><br>
+
+                    Then this ebony bird beguiling my sad fancy into smiling,<br>
+                    By the grave and stern decorum of the countenance it wore.<br>
+                    "Though thy crest be shorn and shaven, thou," I said, "art sure no craven,<br>
+                    Ghastly grim and ancient Raven wandering from the Nightly shore-<br>
+                    Tell me what thy lordly name is on the Night's Plutonian shore!"<br>
+                    Quoth the Raven, "Nevermore."<br><br>
+
+                    Much I marvelled this ungainly fowl to hear discourse so plainly,<br>
+                    Though its answer little meaning- little relevancy bore;<br>
+                    For we cannot help agreeing that no living human being<br>
+                    Ever yet was blessed with seeing bird above his chamber door-<br>
+                    Bird or beast upon the sculptured bust above his chamber door,<br>
+                    With such name as "Nevermore."<br><br>
+
+                    But the Raven, sitting lonely on the placid bust, spoke only<br>
+                    That one word, as if his soul in that one word he did outpour.<br>
+                    Nothing further then he uttered- not a feather then he fluttered-<br>
+                    Till I scarcely more than muttered, "Other friends have flown before-<br>
+                    On the morrow he will leave me, as my hopes have flown before."<br>
+                    Then the bird said, "Nevermore."<br><br>
+
+                    Startled at the stillness broken by reply so aptly spoken,<br>
+                    "Doubtless," said I, "what it utters is its only stock and store,<br>
+                    Caught from some unhappy master whom unmerciful Disaster<br>
+                    Followed fast and followed faster till his songs one burden bore-<br>
+                    Till the dirges of his Hope that melancholy burden bore<br>
+                    Of 'Never- nevermore'."<br><br>
+
+                    But the Raven still beguiling all my fancy into smiling,<br>
+                    Straight I wheeled a cushioned seat in front of bird, and bust and door;<br>
+                    Then upon the velvet sinking, I betook myself to linkingv<br>
+                    Fancy unto fancy, thinking what this ominous bird of yore-<br>
+                    What this grim, ungainly, ghastly, gaunt and ominous bird of yore<br>
+                    Meant in croaking "Nevermore."<br><br>
+
+                    This I sat engaged in guessing, but no syllable expressing<br>
+                    To the fowl whose fiery eyes now burned into my bosom's core;<br>
+                    This and more I sat divining, with my head at ease reclining<br>
+                    On the cushion's velvet lining that the lamp-light gloated o'er,<br>
+                    But whose velvet violet lining with the lamp-light gloating o'er,<br>
+                    She shall press, ah, nevermore!<br><br>
+
+                    Then methought the air grew denser, perfumed from an unseen censer<br>
+                    Swung by Seraphim whose footfalls tinkled on the tufted floor.<br>
+                    "Wretch," I cried, "thy God hath lent thee- by these angels he hath sent thee<br>
+                    Respite- respite and nepenthe, from thy memories of Lenore!<br>
+                    Quaff, oh quaff this kind nepenthe and forget this lost Lenore!"<br>
+                    Quoth the Raven, "Nevermore."<br><br>
+
+                    "Prophet!" said I, "thing of evil! - prophet still, if bird or devil! -<br>
+                    Whether Tempter sent, or whether tempest tossed thee here ashore,<br>
+                    Desolate yet all undaunted, on this desert land enchanted-<br>
+                    On this home by Horror haunted- tell me truly, I implore-<br>
+                    Is there- is there balm in Gilead?- tell me- tell me, I implore!"<br>
+                    Quoth the Raven, "Nevermore."<br><br>
+
+                    "Prophet!" said I, "thing of evil! - prophet still, if bird or devil!<br>
+                    By that Heaven that bends above us- by that God we both adore-<br>
+                    Tell this soul with sorrow laden if, within the distant Aidenn,<br>
+                    It shall clasp a sainted maiden whom the angels name Lenore-<br>
+                    Clasp a rare and radiant maiden whom the angels name Lenore."<br>
+                    Quoth the Raven, "Nevermore."<br><br>
+
+                    "Be that word our sign in parting, bird or fiend," I shrieked, upstarting-<br>
+                    "Get thee back into the tempest and the Night's Plutonian shore!<br>
+                    Leave no black plume as a token of that lie thy soul hath spoken!<br>
+                    Leave my loneliness unbroken!- quit the bust above my door!<br>
+                    Take thy beak from out my heart, and take thy form from off my door!"<br>
+                    Quoth the Raven, "Nevermore."<br><br>
+
+                    And the Raven, never flitting, still is sitting, still is sitting<br>
+                    On the pallid bust of Pallas just above my chamber door;<br>
+                    And his eyes have all the seeming of a demon's that is dreaming,<br>
+                    And the lamp-light o'er him streaming throws his shadow on the floor;<br>
+                    And my soul from out that shadow that lies floating on the floor<br>
+                    Shall be lifted- nevermore!
+                </p>
+                <br>
+                <div class="commentBtn">
+                    <p> Comments </p>
+                </div>
+                <div class="comments" id="Edgar5">
+                    <span class="inline-flex py-5 align-middle justify-items-center">
+                        <input class="commentContent" style="width:500px;height:35px;" type="text"
+                            placeholder="   Type comment..." required>
+                        <img src="images/message-arrow-up_9821556.png" style="width:40px;height:40px;margin-left: 10px;"
+                            onclick="addComments('Edgar5')">
+                    </span>
+
+                </div>
+            </div>
+            <div class="poemsplus" id="Israfel">
+                <p class="text-lg self--center font-semibold text-red-700">Israfel</p><br>
+                <p class="poem">
+                    In Heaven a spirit doth dwell<br>
+                    “Whose heart-strings are a lute”;<br>
+                    None sing so wildly well<br>
+                    As the angel Israfel,<br>
+                    And the giddy stars (so legends tell),<br>
+                    Ceasing their hymns, attend the spell<br>
+                    Of his voice, all mute.<br><br>
+
+                    Tottering above<br>
+                    In her highest noon,<br>
+                    The enamoured moon<br>
+                    Blushes with love,<br>
+                    While, to listen, the red levin<br>
+                    (With the rapid Pleiads, even,<br>
+                    Which were seven,)<br>
+                    Pauses in Heaven.<br><br>
+
+                    And they say (the starry choir<br>
+                    And the other listening things)<br>
+                    That Israfeli’s fire<br>
+                    Is owing to that lyre<br>
+                    By which he sits and sings— <br>
+                    The trembling living wire<br>
+                    Of those unusual strings.<br><br>
+
+                    But the skies that angel trod,<br>
+                    Where deep thoughts are a duty,<br>
+                    Where Love’s a grown-up God,<br>
+                    Where the Houri glances are <br>
+                    Imbued with all the beauty<br>
+                    Which we worship in a star.<br><br>
+
+                    Therefore, thou art not wrong,<br>
+                    Israfeli, who despisest<br>
+                    An unimpassioned song;<br>
+                    To thee the laurels belong,<br>
+                    Best bard, because the wisest!<br>
+                    Merrily live, and long!<br><br>
+
+                    The ecstasies above<br>
+                    With thy burning measures suit—<br>
+                    Thy grief, thy joy, thy hate, thy love,<br>
+                    With the fervour of thy lute—<br>
+                    Well may the stars be mute!<br><br>
+
+                    Yes, Heaven is thine; but this<br>
+                    Is a world of sweets and sours;<br>
+                    Our flowers are merely—flowers,<br>
+                    And the shadow of thy perfect bliss<br>
+                    Is the sunshine of ours.<br><br>
+
+                    If I could dwell<br>
+                    Where Israfel<br>
+                    Hath dwelt, and he where I,<br>
+                    He might not sing so wildly well<br>
+                    A mortal melody,<br>
+                    While a bolder note than this might swell<br>
+                    From my lyre within the sky.
+                </p>
+                <br>
+                <div class="commentBtn">
+                    <p> Comments </p>
+                </div>
+                <div class="comments" id="Edgar6">
+                    <span class="inline-flex py-5 align-middle justify-items-center">
+                        <input class="commentContent" style="width:500px;height:35px;" type="text"
+                            placeholder="   Type comment..." required>
+                        <img src="images/message-arrow-up_9821556.png" style="width:40px;height:40px;margin-left: 10px;"
+                            onclick="addComments('Edgar6')">
+                    </span>
+
+                </div>
+            </div>
+            <div class="poemsplus" id="TheValleyOfUnrest">
+                <p class="text-lg self--center font-semibold text-red-700">The Valley Of Unrest</p><br>
+                <p class="poem">
+                    Once it smiled a silent dell<br>
+                    Where the people did not dwell;<br>
+                    They had gone unto the wars,<br>
+                    Trusting to the mild-eyed stars,<br>
+                    Nightly, from their azure towers,<br>
+                    To keep watch above the flowers,<br>
+                    In the midst of which all day<br>
+                    The red sun-light lazily lay.<br>
+                    Now each visitor shall confess<br>
+                    The sad valley's restlessness.<br>
+                    Nothing there is motionless --<br>
+                    Nothing save the airs that brood<br>
+                    Over the magic solitude.<br>
+                    Ah, by no wind are stirred those trees<br>
+                    That palpitate like the chill seas<br>
+                    Around the misty Hebrides!<br>
+                    Ah, by no wind those clouds are driven<br>
+                    That rustle through the unquiet Heaven<br>
+                    Uneasily, from morn till even,<br>
+                    Over the violets there that lie<br>
+                    In myriad types of the human eye --<br>
+                    Over the lilies there that wave<br>
+                    And weep above a nameless grave!<br>
+                    They wave: -- from out their fragrant tops<br>
+                    Eternal dews come down in drops.<br>
+                    They weep: -- from off their delicate stems<br>
+                    Perennial tears descend in gems.<br>
+                </p>
+                <br>
+                <div class="commentBtn">
+                    <p> Comments </p>
+                </div>
+                <div class="comments" id="Edgar7">
+                    <span class="inline-flex py-5 align-middle justify-items-center">
+                        <input class="commentContent" style="width:500px;height:35px;" type="text"
+                            placeholder="   Type comment..." required>
+                        <img src="images/message-arrow-up_9821556.png" style="width:40px;height:40px;margin-left: 10px;"
+                            onclick="addComments('Edgar7')">
+                    </span>
+
+                </div>
+            </div>
+            <div class="poemsplus" id="SpiritsOfTheDead">
+                <p class="text-lg self--center font-semibold text-red-700">Spirits of the Dead</p><br>
+                <p class="poem">
+                    Thy soul shall find itself alone<br>
+                    'Mid dark thoughts of the grey tomb-stone --<br>
+                    Not one, of all the crowd, to pry<br>
+                    Into thine hour of secrecy:<br>
+                    Be silent in that solitude<br>
+                    Which is not loneliness -- for then<br>
+                    The spirits of the dead who stood<br>
+                    In life before thee are again<br>
+                    In death around thee -- and their will<br>
+                    Shall then overshadow thee: be still.<br><br>
+
+                    For the night -- tho' clear -- shall frown --<br>
+                    And the stars shall look not down,<br>
+                    From their high thrones in the Heaven,<br>
+                    With light like Hope to mortals given --<br>
+                    But their red orbs, without beam,<br>
+                    To thy weariness shall seem<br>
+                    As a burning and a fever<br>
+                    Which would cling to thee for ever :<br><br>
+
+                    Now are thoughts thou shalt not banish --<br>
+                    Now are visions ne'er to vanish --<br>
+                    From thy spirit shall they pass<br>
+                    No more -- like dew-drop from the grass:<br><br>
+
+                    The breeze -- the breath of God -- is still --<br>
+                    And the mist upon the hill<br>
+                    Shadowy -- shadowy -- yet unbroken,<br>
+                    Is a symbol and a token --<br>
+                    How it hangs upon the trees,<br>
+                    A mystery of mysteries! --
+                </p>
+                <br>
+                <div class="commentBtn">
+                    <p> Comments </p>
+                </div>
+                <div class="comments" id="Edgar8">
+                    <span class="inline-flex py-5 align-middle justify-items-center">
+                        <input class="commentContent" style="width:500px;height:35px;" type="text"
+                            placeholder="   Type comment..." required>
+                        <img src="images/message-arrow-up_9821556.png" style="width:40px;height:40px;margin-left: 10px;"
+                            onclick="addComments('Edgar8')">
+                    </span>
+
+                </div>
+            </div>
+            <div class="poemsplus" id="ToHelen">
+                <p class="text-lg self--center font-semibold text-red-700">To Helen</p><br>
+                <p class="poem">
+                    Helen, thy beauty is to me<br>
+                    Like those Nicéan barks of yore,<br>
+                    That gently, o'er a perfumed sea,<br>
+                    The weary, way-worn wanderer borev
+                    To his own native shore.<br><br>
+
+                    On desperate seas long wont to roam,<br>
+                    Thy hyacinth hair, thy classic face,<br>
+                    Thy Naiad airs have brought me home<br>
+                    To the glory that was Greece,<br>
+                    And the grandeur that was Rome.<br><br>
+
+                    Lo! in yon brilliant window-niche<br>
+                    How statue-like I see thee stand,<br>
+                    The agate lamp within thy hand!<br>
+                    Ah, Psyche, from the regions which<br>
+                    Are Holy-Land!
+                </p>
+                <br>
+                <div class="commentBtn">
+                    <p> Comments </p>
+                </div>
+                <div class="comments" id="Edgar9">
+                    <span class="inline-flex py-5 align-middle justify-items-center">
+                        <input class="commentContent" style="width:500px;height:35px;" type="text"
+                            placeholder="   Type comment..." required>
+                        <img src="images/message-arrow-up_9821556.png" style="width:40px;height:40px;margin-left: 10px;"
+                            onclick="addComments('Edgar9')">
+                    </span>
+
+                </div>
+            </div>
+            <div class="poemsplus" id="16-bitIntel8088chip">
+                <p class="text-lg self--center font-semibold text-red-700">16-bit Intel 8088 chip</p><br>
+                <p class="poem">
+                    with an Apple Macintosh<br>
+                    you can't run Radio Shack programs<br>
+                    in its disc drive.<br>
+                    nor can a Commodore 64<br>
+                    drive read a file<br>
+                    you have created on an<br>
+                    IBM Personal Computer.<br>
+                    both Kaypro and Osborne computers use<br>
+                    the CP/M operating system<br>
+                    but can't read each other's<br>
+                    handwriting<br>
+                    for they format (write<br>
+                    on) discs in different<br>
+                    ways.<br>
+                    the Tandy 2000 runs MS-DOS but<br>
+                    can't use most programs produced for<br>
+                    the IBM Personal Computer<br>
+                    unless certain<br>
+                    bits and bytes are<br>
+                    altered<br>
+                    but the wind still blows over<br>
+                    Savannah<br>
+                    and in the Spring<br>
+                    the turkey buzzard struts and<br>
+                    flounces before his<br>
+                    hens.
+                </p>
+                <br>
+                <div class="commentBtn">
+                    <p> Comments </p>
+                </div>
+                <div class="comments" id="Bukowski1">
+                    <span class="inline-flex py-5 align-middle justify-items-center">
+                        <input class="commentContent" style="width:500px;height:35px;" type="text"
+                            placeholder="   Type comment..." required>
+                        <img src="images/message-arrow-up_9821556.png" style="width:40px;height:40px;margin-left: 10px;"
+                            onclick="addComments('Bukowski1')">
+                    </span>
+
+                </div>
+            </div>
+            <div class="poemsplus" id="AloneWithEverybody">
+                <p class="text-lg self--center font-semibold text-red-700">Alone With Everybody</p><br>
+                <p class="poem">
+                    the flesh covers the bone<br>
+                    and they put a mind<br>
+                    in there and<br>
+                    sometimes a soul,<br>
+                    and the women break<br>
+                    vases against the walls<br>
+                    and the men drink too<br>
+                    much<br>
+                    and nobody finds the<br>
+                    one<br>
+                    but keep<br>
+                    looking<br>
+                    crawling in and out<br>
+                    of<br>
+                    flesh covers<br>
+                    the bone and the<br>
+                    flesh searches<br>
+                    for more than<br>
+                    flesh.<br><br>
+
+                    there's no chance<br>
+                    at all:<br>
+                    we are all trapped<br>
+                    by a singular<br>
+                    fate.<br><br>
+
+                    nobody ever finds<br>
+                    the one.<br><br>
+
+                    the city dumps fill<br>
+                    the junkyards fill<br>
+                    the madhouses fill<br>
+                    the hospitals fill<br>
+                    the graveyards fill<br><br>
+
+                    nothing else<br>
+                    fills.
+                </p>
+                <br>
+                <div class="commentBtn">
+                    <p> Comments </p>
+                </div>
+                <div class="comments" id="Bukowski2">
+                    <span class="inline-flex py-5 align-middle justify-items-center">
+                        <input class="commentContent" style="width:500px;height:35px;" type="text"
+                            placeholder="   Type comment..." required>
+                        <img src="images/message-arrow-up_9821556.png" style="width:40px;height:40px;margin-left: 10px;"
+                            onclick="addComments('Bukowski2')">
+                    </span>
+
+                </div>
+            </div>
+            <div class="poemsplus" id="Bluebird">
+                <p class="text-lg self--center font-semibold text-red-700">Bluebird</p><br>
+                <p class="poem">
+                    there's a bluebird in my heart that<br>
+                    wants to get out<br>
+                    but I'm too tough for him,<br>
+                    I say, stay in there, I'm not going<br>
+                    to let anybody see<br>
+                    you.<br>
+                    there's a bluebird in my heart that<br>
+                    wants to get out<br>
+                    but I pour whiskey on him and inhale<br>
+                    cigarette smoke<br>
+                    and the whores and the bartenders<br>
+                    and the grocery clerks<br>
+                    never know that<br>
+                    he's<br>
+                    in there.<br>
+                    <br>
+                    there's a bluebird in my heart that<br>
+                    wants to get out<br>
+                    but I'm too tough for him,<br>
+                    I say,<br>
+                    stay down, do you want to mess<br>
+                    me up?<br>
+                    you want to screw up the<br>
+                    works?<br>
+                    you want to blow my book sales in<br>
+                    Europe?<br>
+                    there's a bluebird in my heart that<br>
+                    wants to get out<br>
+                    but I'm too clever, I only let him out<br>
+                    at night sometimes<br>
+                    when everybody's asleep.<br>
+                    I say, I know that you're there,<br>
+                    so don't be<br>
+                    sad.<br>
+                    then I put him back,<br>
+                    but he's singing a little<br>
+                    in there, I haven't quite let him<br>
+                    die<br>
+                    and we sleep together like<br>
+                    that<br>
+                    with our<br>
+                    secret pact<br>
+                    and it's nice enough to<br>
+                    make a man<br>
+                    weep, but I don't<br>
+                    weep, do<br>
+                    you?<br>
+                </p>
+                <br>
+                <div class="commentBtn">
+                    <p> Comments </p>
+                </div>
+                <div class="comments" id="Bukowski3">
+                    <span class="inline-flex py-5 align-middle justify-items-center">
+                        <input class="commentContent" style="width:500px;height:35px;" type="text"
+                            placeholder="   Type comment..." required>
+                        <img src="images/message-arrow-up_9821556.png" style="width:40px;height:40px;margin-left: 10px;"
+                            onclick="addComments('Bukowski3')">
+                    </span>
+
+                </div>
+            </div>
+            <div class="poemsplus" id="AsTheSparrow">
+                <p class="text-lg self--center font-semibold text-red-700">As The Sparrow</p><br>
+                <p class="poem">
+                    To give life you must take life,<br>
+                    and as our grief falls flat and hollow<br>
+                    upon the billion-blooded sea<br>
+                    I pass upon serious inward-breaking shoals rimmed<br>
+                    with white-legged, white-bellied rotting creatures<br>
+                    lengthily dead and rioting against surrounding scenes.<br>
+                    Dear child, I only did to you what the sparrow<br>
+                    did to you; I am old when it is fashionable to be<br>
+                    young; I cry when it is fashionable to laugh.<br>
+                    I hated you when it would have taken less courage<br>
+                    to love.
+                </p>
+                <br>
+                <div class="commentBtn">
+                    <p> Comments </p>
+                </div>
+                <div class="comments" id="Bukowski4">
+                    <span class="inline-flex py-5 align-middle justify-items-center">
+                        <input class="commentContent" style="width:500px;height:35px;" type="text"
+                            placeholder="   Type comment..." required>
+                        <img src="images/message-arrow-up_9821556.png" style="width:40px;height:40px;margin-left: 10px;"
+                            onclick="addComments('Bukowski4')">
+                    </span>
+
+                </div>
+            </div>
+            <div class="poemsplus" id="mycomputer">
+                <p class="text-lg self--center font-semibold text-red-700">my computer</p><br>
+                <p class="poem">
+                    "what?" they say, "you got a<br>
+                    computer?"<br><br>
+
+                    it's like I have sold out to<br>
+                    the enemy.<br><br>
+
+                    I had no idea so many<br>
+                    people were prejudiced<br>
+                    against<br>
+                    computers.<br><br>
+
+                    even two editors have<br>
+                    written me letters about<br>
+                    the computer.<br><br>
+
+                    one disparaged the<br>
+                    computer in a mild and<br>
+                    superior way.<br>
+                    the other seemed<br>
+                    genuinely<br>
+                    pissed.<br><br>
+
+                    I am aware that a<br>
+                    computer can't create<br>
+                    a poem.<br>
+                    but neither can a<br>
+                    typewriter.<br><br>
+
+                    yet, still, once or<br>
+                    twice a week<br>
+                    I hear:<br>
+                    "what?<br>
+                    you have a<br>
+                    computer?<br>
+                    you?"<br><br>
+
+                    yes, I do<br>
+                    and I sit up here<br>
+                    almost every<br>
+                    night,<br>
+                    sometimes with<br>
+                    beer or<br>
+                    wine,<br>
+                    sometimes<br>
+                    without<br>
+                    and I work the<br>
+                    computer.<br>
+                    the damn thing<br>
+                    even corrects<br>
+                    my spelling.<br><br>
+
+                    and the poems<br>
+                    come flying<br>
+                    out,<br>
+                    better than<br>
+                    ever.<br><br>
+
+                    I have no<br>
+                    idea what causes<br>
+                    all this<br>
+                    computer<br>
+                    prejudice.<br><br>
+
+                    me?<br>
+                    I want to go<br>
+                    the next step<br>
+                    beyond the<br>
+                    computer.<br>
+                    I'm sure it's<br>
+                    there.<br><br>
+
+                    and when I get<br>
+                    it,<br>
+                    they'll say,<br>
+                    "hey, you hear,<br>
+                    Chinaski got a<br>
+                    space-biter!"<br><br>
+
+                    "what?"<br><br>
+
+                    "yes, it's true!"<br><br>
+
+                    "I can't believe<br>
+                    it!"<br><br>
+
+                    and I'll also have<br>
+                    some beer or<br>
+                    some wine<br>
+                    or maybe nothing<br>
+                    at all<br>
+                    and I'll be<br>
+                    85 years old<br>
+                    driving it home<br>
+                    to<br>
+                    you and me<br>
+                    and to the little girl<br>
+                    who lost her<br>
+                    sheep.<br>
+                    or her<br>
+                    computer.
+                </p>
+                <br>
+                <div class="commentBtn">
+                    <p> Comments </p>
+                </div>
+                <div class="comments" id="Bukowski5">
+                    <span class="inline-flex py-5 align-middle justify-items-center">
+                        <input class="commentContent" style="width:500px;height:35px;" type="text"
+                            placeholder="   Type comment..." required>
+                        <img src="images/message-arrow-up_9821556.png" style="width:40px;height:40px;margin-left: 10px;"
+                            onclick="addComments('Bukowski5')">
+                    </span>
+
+                </div>
+            </div>
+            <div class="poemsplus" id="CutWhileShaving">
+                <p class="text-lg self--center font-semibold text-red-700">Cut While Shaving</p><br>
+                <p class="poem">
+                    It's never quite right, he said, the way people look,<br>
+                    the way the music sounds, the way the words are<br>
+                    written.<br>
+                    It's never quite right, he said, all the things we are<br>
+                    taught, all the loves we chase, all the deaths we<br>
+                    die, all the lives we live,<br>
+                    they are never quite right,<br>
+                    they are hardly close to right,<br>
+                    these lives we live<br>
+                    one after the other,<br>
+                    piled there as history,<br>
+                    the waste of the species,<br>
+                    the crushing of the light and the way,<br>
+                    it's not quite right,<br>
+                    it's hardly right at all<br>
+                    he said.<br><br>
+
+                    don't I know it? I<br>
+                    answered.<br><br>
+
+                    I walked away from the mirror.<br>
+                    it was morning, it was afternoon, it was<br>
+                    night<br><br>
+
+                    nothing changed<br>
+                    it was locked in place.<br>
+                    something flashed, something broke, something<br>
+                    remained.<br><br>
+
+                    I walked down the stairway and<br>
+                    into it.
+                </p>
+                <br>
+                <div class="commentBtn">
+                    <p> Comments </p>
+                </div>
+                <div class="comments" id="Bukowski6">
+                    <span class="inline-flex py-5 align-middle justify-items-center">
+                        <input class="commentContent" style="width:500px;height:35px;" type="text"
+                            placeholder="   Type comment..." required>
+                        <img src="images/message-arrow-up_9821556.png" style="width:40px;height:40px;margin-left: 10px;"
+                            onclick="addComments('Bukowski6')">
+                    </span>
+
+                </div>
+            </div>
+            <div class="poemsplus" id="AsThePoemsGo">
+                <p class="text-lg self--center font-semibold text-red-700">As The Poems Go</p><br>
+                <p class="poem">
+                    As the poems go into the thousands you<br>
+                    realize that you've created very<br>
+                    little.<br>
+                    it comes down to the rain, the sunlight,<br>
+                    the traffic, the nights and the days of the<br>
+                    years, the faces.<br>
+                    leaving this will be easier than living<br>
+                    it, typing one more line now as<br>
+                    a man plays a piano through the radio,<br>
+                    the best writers have said very<br>
+                    little<br>
+                    and the worst,<br>
+                    far too much.
+                </p>
+                <br>
+                <div class="commentBtn">
+                    <p> Comments </p>
+                </div>
+                <div class="comments" id="Bukowski7">
+                    <span class="inline-flex py-5 align-middle justify-items-center">
+                        <input class="commentContent" style="width:500px;height:35px;" type="text"
+                            placeholder="   Type comment..." required>
+                        <img src="images/message-arrow-up_9821556.png" style="width:40px;height:40px;margin-left: 10px;"
+                            onclick="addComments('Bukowski7')">
+                    </span>
+
+                </div>
+            </div>
+            <div class="poemsplus" id="TheCrunch">
+                <p class="text-lg self--center font-semibold text-red-700">The Crunch</p><br>
+                <p class="poem">
+                    too much too little<br><br>
+
+                    too fat<br>
+                    too thin<br>
+                    or nobody.<br><br>
+
+                    laughter or<br>
+                    tears<br><br>
+
+                    haters<br>
+                    lovers<br><br>
+
+                    strangers with faces like<br>
+                    the backs of<br>
+                    thumb tacks<br><br>
+
+                    armies running through<br>
+                    streets of blood<br>
+                    waving winebottles<br>
+                    bayoneting and fucking<br>
+                    virgins.<br><br>
+
+                    an old guy in a cheap room<br>
+                    with a photograph of M. Monroe.<br><br>
+
+                    there is a loneliness in this world so great<br>
+                    that you can see it in the slow movement of<br>
+                    the hands of a clock<br><br>
+
+                    people so tired<br>
+                    mutilated<br>
+                    either by love or no love.<br><br>
+
+                    people just are not good to each other<br>
+                    one on one.<br><br>
+
+                    the rich are not good to the rich<br>
+                    the poor are not good to the poor.<br><br>
+
+                    we are afraid.<br><br>
+
+                    our educational system tells us<br>
+                    that we can all be<br>
+                    big-ass winners<br><br>
+
+                    it hasn't told us<br>
+                    about the gutters<br>
+                    or the suicides.<br><br>
+
+                    or the terror of one person<br>
+                    aching in one place<br>
+                    alone<br><br>
+
+                    untouched<br>
+                    unspoken to<br><br>
+
+                    watering a plant.<br><br>
+
+                    people are not good to each other.<br>
+                    people are not good to each other.<br>
+                    people are not good to each other.<br><br>
+
+                    I suppose they never will be.<br>
+                    I don't ask them to be.<br><br>
+
+                    but sometimes I think about<br>
+                    it.<br><br>
+
+                    the beads will swing<br>
+                    the clouds will cloud<br>
+                    and the killer will behead the child<br>
+                    like taking a bite out of an ice cream cone.<br><br>
+
+                    too much<br>
+                    too little<br><br>
+
+                    too fat<br>
+                    too thin<br>
+                    or nobody<br><br>
+
+                    more haters than lovers.<br><br>
+
+                    people are not good to each other.<br>
+                    perhaps if they were<br>
+                    our deaths would not be so sad.<br><br>
+
+                    meanwhile I look at young girls<br>
+                    stems<br>
+                    flowers of chance.<br><br>
+
+                    there must be a way.<br><br>
+
+                    surely there must be a way that we have not yet<br>
+                    though of.<br><br>
+
+                    who put this brain inside of me?<br><br>
+
+                    it cries<br>
+                    it demands<br>
+                    it says that there is a chance.<br><br>
+
+                    it will not say<br>
+                    "no."
+                </p>
+                <br>
+                <div class="commentBtn">
+                    <p> Comments </p>
+                </div>
+                <div class="comments" id="Bukowski8">
+                    <span class="inline-flex py-5 align-middle justify-items-center">
+                        <input class="commentContent" style="width:500px;height:35px;" type="text"
+                            placeholder="   Type comment..." required>
+                        <img src="images/message-arrow-up_9821556.png" style="width:40px;height:40px;margin-left: 10px;"
+                            onclick="addComments('Bukowski8')">
+                    </span>
+
+                </div>
+            </div>
+            <div class="poemsplus" id="MyCats">
+                <p class="text-lg self--center font-semibold text-red-700">My Cats</p><br>
+                <p class="poem">
+                    I know. I know.<br>
+                    they are limited, have different<br>
+                    needs and<br>
+                    concerns.<br><br>
+
+                    but I watch and learn from them.<br>
+                    I like the little they know,<br>
+                    which is so<br>
+                    much.<br><br>
+
+                    they complain but never<br>
+                    worry,<br>
+                    they walk with a surprising dignity.<br>
+                    they sleep with a direct simplicity that<br>
+                    humans just can't<br>
+                    understand.<br><br>
+
+                    their eyes are more<br>
+                    beautiful than our eyes.<br>
+                    and they can sleep 20 hours<br>
+                    a day<br>
+                    without<br>
+                    hesitation or<br>
+                    remorse.<br><br>
+
+                    when I am feeling<br>
+                    low<br>
+                    all I have to do is<br>
+                    watch my cats<br>
+                    and my<br>
+                    courage<br>
+                    returns.<br><br>
+
+                    I study these<br>
+                    creatures.<br><br>
+
+                    they are my<br>
+                    teachers.
+                </p>
+                <br>
+                <div class="commentBtn">
+                    <p> Comments </p>
+                </div>
+                <div class="comments" id="Bukowski9">
+                    <span class="inline-flex py-5 align-middle justify-items-center">
+                        <input class="commentContent" style="width:500px;height:35px;" type="text"
+                            placeholder="   Type comment..." required>
+                        <img src="images/message-arrow-up_9821556.png" style="width:40px;height:40px;margin-left: 10px;"
+                            onclick="addComments('Bukowski9')">
+                    </span>
+
+                </div>
+            </div>
+            <div class="poemsplus" id="Arion">
+                <p class="text-lg self--center font-semibold text-red-700">Arion</p><br>
+                <p class="poem">
+                    A lot of us were on the bark:<br>
+                    Some framed a sail for windy weather,<br>
+                    The others strongly and together<br>
+                    Moved oars. In silence sunk,<br>
+                    Keeping a rudder, strong and clever,<br>
+                    The skipper drove the heavy skiff;<br>
+                    And I -- with careless belief --<br>
+                    I sang for sailors... . But the stiff<br>
+                    Whirl smashed at once the waters' favor...<br>
+                    All dead -- the captain and his guard! --<br>
+                    But I, the enigmatic bard,<br>
+                    Was thrown to the shore alone.<br>
+                    I sing the former anthems, yet,<br>
+                    And dry my mantle, torn and wet,<br>
+                    In beams of sun under a stone.
+                </p>
+                <br>
+                <div class="commentBtn">
+                    <p> Comments </p>
+                </div>
+                <div class="comments" id="Puskin2">
+                    <span class="inline-flex py-5 align-middle justify-items-center">
+                        <input class="commentContent" style="width:500px;height:35px;" type="text"
+                            placeholder="   Type comment..." required>
+                        <img src="images/message-arrow-up_9821556.png" style="width:40px;height:40px;margin-left: 10px;"
+                            onclick="addComments('Puskin2')">
+                    </span>
+
+                </div>
+            </div>
+            <div class="poemsplus" id="Morpheus">
+                <p class="text-lg self--center font-semibold text-red-700">Morpheus</p><br>
+                <p class="poem">
+                    Oh, Morpheus, give me joy till morning<br>
+                    For my forever painful love:<br>
+                    Just blow out candles' burning<br>
+                    And let my dreams in blessing move.<br>
+                    Let from my soul disappear<br>
+                    The separation's sharp rebuke!<br>
+                    And let me see that dear look,<br>
+                    And let me hear voice that dear.<br>
+                    And when will vanish dark of night<br>
+                    And you will free my eyes at leaving,<br>
+                    Oh, if my heart would have a right<br>
+                    To lose its love till dark of evening!
+                </p>
+                <br>
+                <div class="commentBtn">
+                    <p> Comments </p>
+                </div>
+                <div class="comments" id="Puskin3">
+                    <span class="inline-flex py-5 align-middle justify-items-center">
+                        <input class="commentContent" style="width:500px;height:35px;" type="text"
+                            placeholder="   Type comment..." required>
+                        <img src="images/message-arrow-up_9821556.png" style="width:40px;height:40px;margin-left: 10px;"
+                            onclick="addComments('Puskin3')">
+                    </span>
+
+                </div>
+            </div>
+            <div class="poemsplus" id="TheTalisman">
+                <p class="text-lg self--center font-semibold text-red-700">The Talisman</p><br>
+                <p class="poem">
+                    Where the sea forever dances<br>
+                    Over lonely cliff and dune,<br>
+                    Where sweet twilight's vapor glances<br>
+                    In a warmer-glowing moon,<br>
+                    Where with the seraglio's graces<br>
+                    Daylong toys the Mussulman,<br>
+                    An enchantress 'mid embraces<br>
+                    Handed me a talisman.<br><br>
+
+                    'Mid embraces I was bidden:<br>
+                    "Guard this talisman of mine:<br>
+                    In it secret power is hidden!<br>
+                    Love himself has made it thine.<br>
+                    Neither death nor ills nor aging,<br>
+                    My beloved, does it ban,<br>
+                    Nor in gales and tempest raging<br>
+                    Can avail my talisman.<br><br>
+
+                    Never will it help thee gather<br>
+                    Treasures of the Orient coast,<br>
+                    Neither to thy harness tether<br>
+                    Captives of the Prophet's host;<br>
+                    Nor in sadness will it lead thee<br>
+                    To a friendly bosom, nor<br>
+                    From this alien southland speed thee<br>
+                    To the native northern shore.<br><br>
+
+                    "But whenever eyes designing<br>
+                    Cast on thee a sudden spell,<br>
+                    In the darkness lips entwining<br>
+                    Love thee not, but kiss too well:<br>
+                    Shield thee, love, from evil preying,<br>
+                    From new heart-wounds---that it can,<br>
+                    From forgetting, from betraying<br>
+                    Guards thee this my talisman."
+                </p>
+                <br>
+                <div class="commentBtn">
+                    <p> Comments </p>
+                </div>
+                <div class="comments" id="Puskin4">
+                    <span class="inline-flex py-5 align-middle justify-items-center">
+                        <input class="commentContent" style="width:500px;height:35px;" type="text"
+                            placeholder="   Type comment..." required>
+                        <img src="images/message-arrow-up_9821556.png" style="width:40px;height:40px;margin-left: 10px;"
+                            onclick="addComments('Puskin4')">
+                    </span>
+
+                </div>
+            </div>
+            <div class="poemsplus" id="Remembrance">
+                <p class="text-lg self--center font-semibold text-red-700">Remembrance</p><br>
+                <p class="poem">
+                    When the loud day for men who sow and reap<br>
+                    Grows still, and on the silence of the town<br>
+                    The unsubstantial veils of night and sleep,<br>
+                    The meed of the day's labour, settle down,<br>
+                    Then for me in the stillness of the night<br>
+                    The wasting, watchful hours drag on their course,<br>
+                    And in the idle darkness comes the bite<br>
+                    Of all the burning serpents of remorse;<br>
+                    Dreams seethe; and fretful infelicities<br>
+                    Are swarming in my over-burdened soul,<br>
+                    And Memory before my wakeful eyes<br>
+                    With noiseless hand unwinds her lengthy scroll.<br>
+                    Then, as with loathing I peruse the years,<br>
+                    I tremble, and I curse my natal day,<br>
+                    Wail bitterly, and bitterly shed tears,<br>
+                    But cannot wash the woeful script away.
+                </p>
+                <br>
+                <div class="commentBtn">
+                    <p> Comments </p>
+                </div>
+                <div class="comments" id="Puskin5">
+                    <span class="inline-flex py-5 align-middle justify-items-center">
+                        <input class="commentContent" style="width:500px;height:35px;" type="text"
+                            placeholder="   Type comment..." required>
+                        <img src="images/message-arrow-up_9821556.png" style="width:40px;height:40px;margin-left: 10px;"
+                            onclick="addComments('Puskin5')">
+                    </span>
+
+                </div>
+            </div>
+            <div class="poemsplus" id="Solitude">
+                <p class="text-lg self--center font-semibold text-red-700">Solitude</p><br>
+                <p class="poem">
+                    He's blessed, who lives in peace, that's distant<br>
+                    From the ignorant fobs with calls,<br>
+                    Who can provide his every instance<br>
+                    With dreams, or labors, or recalls;<br>
+                    To whom the fate sends friends in score,<br>
+                    Who hides himself by Savior's back<br>
+                    From bashful fools, which lull and bore,<br>
+                    And from the impudent ones, which wake.
+                </p>
+                <br>
+                <div class="commentBtn">
+                    <p> Comments </p>
+                </div>
+                <div class="comments" id="Puskin6">
+                    <span class="inline-flex py-5 align-middle justify-items-center">
+                        <input class="commentContent" style="width:500px;height:35px;" type="text"
+                            placeholder="   Type comment..." required>
+                        <img src="images/message-arrow-up_9821556.png" style="width:40px;height:40px;margin-left: 10px;"
+                            onclick="addComments('Puskin6')">
+                    </span>
+
+                </div>
+            </div>
+            <div class="poemsplus" id="Thoughts">
+                <p class="text-lg self--center font-semibold text-red-700">Thoughts</p><br>
+                <p class="poem">
+                    If I walk the noisy streets,<br>
+                    Or enter a many thronged church,<br>
+                    Or sit among the wild young generation,<br>
+                    I give way to my thoughts.<br>
+                    I say to myself: the years are fleeting,<br>
+                    And however many there seem to be,<br>
+                    We must all go under the eternal vault,<br>
+                    And someone?s hour is already at hand.<br>
+                    When I look at a solitary oak<br>
+                    I think: the patriarch of the woods.<br>
+                    It will outlive my forgotten age<br>
+                    As it outlived that of my grandfathers?.<br>
+                    If I dandle a young infant,<br>
+                    Immediately I think: farewell!<br>
+                    I will yield my place to you,<br>
+                    For I must fade while your flower blooms.<br>
+                    Each day, and every hour<br>
+                    I habitually follow in my thoughts,<br>
+                    Trying to guess from their numberv
+                    The year which brings my death.<br>
+                    And where will fate send death to me?<br>
+                    In battle, in my travels, or on the seas?<br>
+                    Or will the neighbouring valley<br>
+                    Receive my chilled ashes?<br>
+                    And although to the senseless body<br>
+                    It is indifferent wherever it rots,<br>
+                    Yet close to my beloved countrysidev
+                    I still would prefer to rest.<br>
+                    And let it be, beside the grave?s vault<br>
+                    That young life forever will be playing,<br>
+                    And impartial, indifferent nature<br>
+                    Eternally be shining in beauty.
+                </p>
+                <br>
+                <div class="commentBtn">
+                    <p> Comments </p>
+                </div>
+                <div class="comments" id="Puskin7">
+                    <span class="inline-flex py-5 align-middle justify-items-center">
+                        <input class="commentContent" style="width:500px;height:35px;" type="text"
+                            placeholder="   Type comment..." required>
+                        <img src="images/message-arrow-up_9821556.png" style="width:40px;height:40px;margin-left: 10px;"
+                            onclick="addComments('Puskin7')">
+                    </span>
+
+                </div>
+            </div>
+            <div class="poemsplus" id="ThePoet">
+                <p class="text-lg self--center font-semibold text-red-700">The Poet</p><br>
+                <p class="poem">
+                    Until he hears Apollo's call<br>
+                    To make a hallowed sacrifice,<br>
+                    A Poet lives in feeble thrall<br>
+                    To people's empty vanities;<br>
+                    And silent is his sacred lyre,<br>
+                    His soul partakes of chilly sleep,<br>
+                    And of the world's unworthy sons<br>
+                    He is, perhaps, the very least.<br><br>
+
+                    But once Divinity's command<br>
+                    Approaches his exquisite ear,<br>
+                    The poet's soul awakens, poised,<br>
+                    Just like an eagle stirred from sleep.<br>
+                    All worldly pleasures leave him cold,<br>
+                    From common talk he stays aloof,<br>
+                    And will not lower his proud head<br>
+                    Before the nation's sacred cow.<br>
+                    Untamed and brooding, he takes flight,<br>
+                    Seething with sound and agitation,<br>
+                    To reach a sea-swept, desert shore,<br>
+                    A woodland wide and murmuring...
+                </p>
+                <br>
+                <div class="commentBtn">
+                    <p> Comments </p>
+                </div>
+                <div class="comments" id="Puskin8">
+                    <span class="inline-flex py-5 align-middle justify-items-center">
+                        <input class="commentContent" style="width:500px;height:35px;" type="text"
+                            placeholder="   Type comment..." required>
+                        <img src="images/message-arrow-up_9821556.png" style="width:40px;height:40px;margin-left: 10px;"
+                            onclick="addComments('Puskin8')">
+                    </span>
+
+                </div>
+            </div>
+            <div class="poemsplus" id="TheProphet">
+                <p class="text-lg self--center font-semibold text-red-700">The Prophet</p><br>
+                <p class="poem">
+                    Longing for spiritual springs,<br>
+                    I dragged myself through desert sands ...<br>
+                    An angel with three pairs of wings<br>
+                    Arrived to me at cross of lands;<br>
+                    With fingers so light and slim<br>
+                    He touched my eyes as in a dream:<br>
+                    And opened my prophetic eyes<br>
+                    Like eyes of eagle in surprise.<br>
+                    He touched my ears in movement, single,<br>
+                    And they were filled with noise and jingle:<br>
+                    I heard a shuddering of heavens,<br>
+                    And angels' flight on azure heights<br>
+                    And creatures' crawl in long sea nights,<br>
+                    And rustle of vines in distant valleys.<br>
+                    And he bent down to my chin,<br>
+                    And he tore off my tongue of sin,<br>
+                    In cheat and idle talks aroused,<br>
+                    And with his hand in bloody specks<br>
+                    He put the sting of wizard snakes<br>
+                    Into my deadly stoned mouth.<br>
+                    With his sharp sword he cleaved my breast,<br>
+                    And plucked my quivering heart out,<br>
+                    And coals flamed with God's behest,<br>
+                    Into my gaping breast were ground.<br>
+                    Like dead I lay on desert sands,<br>
+                    And listened to the God's commands:<br>
+                    'Arise, O prophet, hark and see,<br>
+                    Be filled with utter My demands,<br>
+                    And, going over Land and Sea,<br>
+                    Burn with your Word the humane hearts.'
+                </p>
+                <br>
+                <div class="commentBtn">
+                    <p> Comments </p>
+                </div>
+                <div class="comments" id="Puskin9">
+                    <span class="inline-flex py-5 align-middle justify-items-center">
+                        <input class="commentContent" style="width:500px;height:35px;" type="text"
+                            placeholder="   Type comment..." required>
+                        <img src="images/message-arrow-up_9821556.png" style="width:40px;height:40px;margin-left: 10px;"
+                            onclick="addComments('Puskin9')">
+                    </span>
+
+                </div>
+            </div>
+            <div class="poemsplus" id="AWish">
+                <p class="text-lg self--center font-semibold text-red-700">A Wish</p><br>
+                <p class="poem">
+                    The days drag on, each moment multiplies<br>
+                    Within my wounded heart the pain and sadness<br>
+                    Of an unhappy love and, dark, gives rise.<br>
+                    To sleepless dreams, the haunting dreams of madness<br>
+                    But I do not complain - instead, I weep;<br>
+                    Tears bring me solace, comforted they leave me.<br>
+                    My spirit, captive held by grief, a deep.<br>
+                    And bitter rapture finds in them, believe me.<br>
+                    Pass, life! Come, empty phantom, onward fly.<br>
+                    And in the silent void of darkness vanish.<br>
+                    Dear it to me my love's unending anguish;<br>
+                    If as I die I love, pray let me die.
+                </p>
+                <br>
+                <div class="commentBtn">
+                    <p> Comments </p>
+                </div>
+                <div class="comments" id="Puskin1">
+                    <span class="inline-flex py-5 align-middle justify-items-center">
+                        <input class="commentContent" style="width:500px;height:35px;" type="text"
+                            placeholder="   Type comment..." required>
+                        <img src="images/message-arrow-up_9821556.png" style="width:40px;height:40px;margin-left: 10px;"
+                            onclick="addComments('Puskin1')">
+                    </span>
+
+                </div>
+            </div>
+            <div class="poemsplus" id="Autumn">
+                <p class="text-lg self--center font-semibold text-red-700">Autumn</p><br>
+                <p class="poem">
+                    Soon we will plunge ourselves into cold shadows,<br>
+                    And all of summer's stunning afternoons will be gone.<br>
+                    I already hear the dead thuds of logs below<br>
+                    Falling on the cobblestones and the lawn.<br><br>
+
+                    All of winter will return to me<br>
+                    derision, Hate, shuddering, horror, drudgery and vice,<br>
+                    And exiled, like the sun, to a polar prison,<br>
+                    My soul will harden into a block of red ice.<br><br>
+
+                    I shiver as I listen to each log crash and slam<br>
+                    The echoes are as dull as executioners' drums.<br>
+                    My mind is like a tower that slowly succumbs<br>
+                    To the blows of a relentless battering ram.<br><br>
+
+                    It seems to me, swaying to these shocks, that someone<br>
+                    Is nailing down a coffin in a hurry somewhere.<br>
+                    For whom? It was summer yesterday; now it's autumn.<br>
+                    Echoes of departure keep resounding in the air.
+                </p>
+                <br>
+                <div class="commentBtn">
+                    <p> Comments </p>
+                </div>
+                <div class="comments" id="Bodler2">
+                    <span class="inline-flex py-5 align-middle justify-items-center">
+                        <input class="commentContent" style="width:500px;height:35px;" type="text"
+                            placeholder="   Type comment..." required>
+                        <img src="images/message-arrow-up_9821556.png" style="width:40px;height:40px;margin-left: 10px;"
+                            onclick="addComments('Bodler2')">
+                    </span>
+                </div>
+            </div>
+        </div>
+
+        <div id="Stories" class="tabs">
+
+            <div class="bookshelf">
+
+                <div onclick="showCollection('albertcamus')" class="book" id="kamialber">
+                    <div class="side spine">
+                        <span class="spine-title"> Albert Camus </span>
+                    </div>
+                    <div class="side top"></div>
+                    <div class="side cover"></div>
+                </div>
+
+                <div onclick="showCollection('kafkafranz')" class="book" id="kafkacover">
+                    <div class="side spine">
+                        <span class="spine-title"> Franz Kafka </span>
+                    </div>
+                    <div class="side top"></div>
+                    <div class="side cover"></div>
+                </div>
+
+                <div onclick="showCollection('zbigniewstory')" class="book" id="zbigniewscover">
+                    <div class="side spine">
+                        <span class="spine-title"> Zbigniew Herbert</span>
+                    </div>
+                    <div class="side top"></div>
+                    <div class="side cover"></div>
+                </div>
+
+                <div onclick="showCollection('asimov')" class="book" id="asimovisak">
+                    <div class="side spine">
+                        <span class="spine-title"> Isaac Asimov </span>
+                    </div>
+                    <div class="side top"></div>
+                    <div class="side cover"></div>
+                </div>
+
+            </div>
+
+            <div id="albertcamus" class="collection dailyPoem">
+                <div style="display:flex;justify-content: center;align-items: center;margin:50px;">
+                    <button class="sliderBtn mx-5">
+                        <img class="opacity-700 w-20 h-15" src="images/switch_6576893.png">
+                    </button>
+                    <img style="width: 90px;height: 90px; vertical-align: middle;margin-left: 20px;margin-right: 60px;"
+                        src="images/lyre_3584007.png">
+                    <div class="secondgrid">
+                        <div class="poemBox" onclick="popPoem('silentMen')">
+                            <p>The Silent Men</p>
+                        </div>
+                        <div class="poemBox" onclick="popPoem('guest')">
+                            <p>The Guest</p>
+                        </div>
+                    </div>
+                    <a href="https://en.wikipedia.org/wiki/Albert_Camus" target="_blank">
+                        <img class="author" src="images/kamikami.png">
+                    </a>
+                    <button onclick="slider('next')" class="sliderBtn mx-5">
+                        <img class="opacity-700 w-20 h-15" src="images/switch_6576893.png">
+                    </button>
+                </div>
+            </div>
+
+            <div id="asimov" class="collection dailyPoem">
+
+                <div style="display:flex;justify-content: center;align-items: center;margin:50px;">
+                    <button onclick="slider('back')" class="sliderBtn mx-5">
+                        <img class="opacity-700 w-20 h-15" src="images/switch_6576893.png">
+                    </button>
+                    <img style="width: 90px;height: 90px; vertical-align: middle;margin-left: 20px;margin-right: 60px;"
+                        src="images/lyre_3584007.png">
+                    <div class="secondgrid">
+                        <div class="poemBox" onclick="popPoem('lastQuestion')">
+                            <p>The Last Question</p>
+                        </div>
+                        <div class="poemBox" onclick="popPoem('lastAnswer')">
+                            <p>The Last Answer</p>
+                        </div>
+                    </div>
+                    <a href="https://en.wikipedia.org/wiki/Isaac_Asimov" target="_blank">
+                        <img class="author" src="images/isaac.png">
+                    </a>
+                    <button onclick="slider('next')" class="sliderBtn mx-5">
+                        <img class="opacity-700 w-20 h-15" src="images/switch_6576893.png">
+                    </button>
+                </div>
+            </div>
+
+            <div id="zbigniewstory" class="collection dailyPoem">
+                <div style="display:flex;justify-content: center;align-items: center;margin:50px;">
+                    <button onclick="slider('back')" class="sliderBtn mx-5">
+                        <img class="opacity-700 w-20 h-15" src="images/switch_6576893.png">
+                    </button>
+                    <img style="width: 90px;height: 90px; vertical-align: middle;margin-left: 20px;margin-right: 60px;"
+                        src="images/lyre_3584007.png">
+                    <div class="secondgrid">
+                        <div class="poemBox" onclick="popPoem('orpheus')">
+                            <p>Orpheus</p>
+                        </div>
+                        <div class="poemBox" onclick="popPoem('atlas')">
+                            <p>Atlas</p>
+                        </div>
+                    </div>
+                    <a href="https://en.wikipedia.org/wiki/Zbigniew_Herbert" target="_blank">
+                        <img style="opacity: 0.85;" class="author" src="images/zbigniew.jpg">
+                    </a>
+                    <button onclick="slider('next')" class="sliderBtn mx-5"><img class="opacity-700 w-20 h-15"
+                            src="images/switch_6576893.png"></button>
+                </div>
+            </div>
+
+            <div id="kafkafranz" class="collection dailyPoem">
+                <div style="display:flex;justify-content: center;align-items: center;margin:50px;">
+                    <button onclick="slider('back')" class="sliderBtn mx-5">
+                        <img class="opacity-700 w-20 h-15" src="images/switch_6576893.png">
+                    </button>
+                    <img style="width: 90px;height: 90px; vertical-align: middle;margin-left: 20px;margin-right: 60px;"
+                        src="images/lyre_3584007.png">
+                    <div class="secondgrid">
+                        <div class="poemBox" onclick="popPoem('metamorphOne')">
+                            <p>Metamorphosis I</p>
+                        </div>
+                        <div class="poemBox" onclick="popPoem('metamorphTwo')">
+                            <p>Metamorphosis II</p>
+                        </div>
+                    </div>
+                    <a href="https://en.wikipedia.org/wiki/Franz_Kafka" target="_blank">
+                        <img class="author" src="images/kafkaka.png">
+                    </a>
+                    <button onclick="slider('next')" class="sliderBtn mx-5">
+                        <img class="opacity-700 w-20 h-15" src="images/switch_6576893.png">
+                    </button>
+                </div>
+
+            </div>
+
+            <div class="poemsplus" id="silentMen">
+                <p class="text-lg self--center font-semibold text-red-700">The Silent Men</p><br>
+                <div class="poem">
+                    <embed style="width: 50%;margin-left: 25%;" src="stories/silentMen.pdf" height="600"
+                        type="application/pdf">
+                </div>
+                <br>
+                <div class="commentBtn">
+                    <p> Comments </p>
+                </div>
+                <div class="comments" id="Kami1">
+                    <span class="inline-flex py-5 align-middle justify-items-center">
+                        <input class="commentContent" style="width:500px;height:35px;" type="text"
+                            placeholder="   Type comment..." required>
+                        <img src="images/message-arrow-up_9821556.png" style="width:40px;height:40px;margin-left: 10px;"
+                            onclick="addComments('Kami1')">
+                    </span>
+                </div>
+            </div>
+
+            <div class="poemsplus" id="guest">
+                <p class="text-lg self--center font-semibold text-red-700">The Guest</p><br>
+                <div class="poem">
+                    <embed style="width: 50%;margin-left: 25%;" src="stories/guest.pdf" height="600"
+                        type="application/pdf">
+                </div>
+                <br>
+                <div class="commentBtn">
+                    <p> Comments </p>
+                </div>
+                <div class="comments" id="Kami2">
+                    <span class="inline-flex py-5 align-middle justify-items-center">
+                        <input class="commentContent" style="width:500px;height:35px;" type="text"
+                            placeholder="   Type comment..." required>
+                        <img src="images/message-arrow-up_9821556.png" style="width:40px;height:40px;margin-left: 10px;"
+                            onclick="addComments('Kami2')">
+                    </span>
+                </div>
+            </div>
+
+            <div class="poemsplus" id="metamorphOne">
+                <p class="text-lg self--center font-semibold text-red-700">Metamorphosis I</p><br>
+                <div class="poem">
+                    <embed style="width: 50%;margin-left: 25%;" src="stories/metamorphosis_One.pdf" height="600"
+                        type="application/pdf">
+                </div>
+                <br>
+                <div class="commentBtn">
+                    <p> Comments </p>
+                </div>
+                <div class="comments" id="Kafka1">
+                    <span class="inline-flex py-5 align-middle justify-items-center">
+                        <input class="commentContent" style="width:500px;height:35px;" type="text"
+                            placeholder="   Type comment..." required>
+                        <img src="images/message-arrow-up_9821556.png" style="width:40px;height:40px;margin-left: 10px;"
+                            onclick="addComments('Kafka1')">
+                    </span>
+                </div>
+            </div>
+
+            <div class="poemsplus" id="metamorphTwo">
+                <p class="text-lg self--center font-semibold text-red-700">Metamorphosis II</p><br>
+                <div class="poem">
+                    <embed style="width: 50%;margin-left: 25%;" src="stories/metamorphosis_Two.pdf" height="600"
+                        type="application/pdf">
+                </div>
+                <br>
+                <div class="commentBtn">
+                    <p> Comments </p>
+                </div>
+                <div class="comments" id="Kafka2">
+                    <span class="inline-flex py-5 align-middle justify-items-center">
+                        <input class="commentContent" style="width:500px;height:35px;" type="text"
+                            placeholder="   Type comment..." required>
+                        <img src="images/message-arrow-up_9821556.png" style="width:40px;height:40px;margin-left: 10px;"
+                            onclick="addComments('Kafka2')">
+                    </span>
+                </div>
+            </div>
+
+            <div class="poemsplus" id="orpheus">
+                <p class="text-lg self--center font-semibold text-red-700">Orpheus</p><br>
+                <div class="poem">
+                    <embed style="width: 50%;margin-left: 25%;" src="stories/orpheus.pdf" height="600"
+                        type="application/pdf">
+                </div>
+                <br>
+                <div class="commentBtn">
+                    <p> Comments </p>
+                </div>
+                <div class="comments" id="Herbert1">
+                    <span class="inline-flex py-5 align-middle justify-items-center">
+                        <input class="commentContent" style="width:500px;height:35px;" type="text"
+                            placeholder="   Type comment..." required>
+                        <img src="images/message-arrow-up_9821556.png" style="width:40px;height:40px;margin-left: 10px;"
+                            onclick="addComments('Herbert1')">
+                    </span>
+                </div>
+            </div>
+
+            <div class="poemsplus" id="atlas">
+                <p class="text-lg self--center font-semibold text-red-700">Atlas</p><br>
+                <div class="poem">
+                    <embed style="width: 50%;margin-left: 25%;" src="stories/atlas.pdf" height="600"
+                        type="application/pdf">
+                </div>
+                <br>
+                <div class="commentBtn">
+                    <p> Comments </p>
+                </div>
+                <div class="comments" id="Herbert2">
+                    <span class="inline-flex py-5 align-middle justify-items-center">
+                        <input class="commentContent" style="width:500px;height:35px;" type="text"
+                            placeholder="   Type comment..." required>
+                        <img src="images/message-arrow-up_9821556.png" style="width:40px;height:40px;margin-left: 10px;"
+                            onclick="addComments('Herbert2')">
+                    </span>
+                </div>
+            </div>
+
+            <div class="poemsplus" id="lastQuestion">
+                <p class="text-lg self--center font-semibold text-red-700">The Last Question</p><br>
+                <div class="poem">
+                    <embed style="width: 50%;margin-left: 25%;" src="stories/lastQuestion.pdf" height="600"
+                        type="application/pdf">
+                </div>
+                <br>
+                <div class="commentBtn">
+                    <p> Comments </p>
+                </div>
+                <div class="comments" id="Asimov1">
+                    <span class="inline-flex py-5 align-middle justify-items-center">
+                        <input class="commentContent" style="width:500px;height:35px;" type="text"
+                            placeholder="   Type comment..." required>
+                        <img src="images/message-arrow-up_9821556.png" style="width:40px;height:40px;margin-left: 10px;"
+                            onclick="addComments('Asimov1')">
+                    </span>
+                </div>
+            </div>
+
+            <div class="poemsplus" id="lastAnswer">
+                <p class="text-lg self--center font-semibold text-red-700">The Last Answer</p><br>
+                <div class="poem">
+                    <embed style="width: 50%;margin-left: 25%;" src="stories/lastAnswer.pdf" height="600"
+                        type="application/pdf">
+                </div>
+                <br>
+                <div class="commentBtn">
+                    <p> Comments </p>
+                </div>
+                <div class="comments" id="Asimov2">
+                    <span class="inline-flex py-5 align-middle justify-items-center">
+                        <input class="commentContent" style="width:500px;height:35px;" type="text"
+                            placeholder="   Type comment..." required>
+                        <img src="images/message-arrow-up_9821556.png" style="width:40px;height:40px;margin-left: 10px;"
+                            onclick="addComments('Asimov2')">
+                    </span>
+                </div>
+            </div>
+
+        </div>
+
+        <div id="Submission" class="tabs mt-5">
+            <textarea style="margin-left:15%;width:70%" type="text" cols="10" name="user-writing"
+                placeholder="  Type your poem here" rows="7"></textarea>
+            <button id="submissionPoem">Submit your original poem Here</button>
+            <br>
+            <textarea style="margin-left:15%;width:70%" type="text" cols="10" placeholder="  Type your story here"
+                rows="7"></textarea>
+            <button id="submissionStory">Submit your original story Here</button>
+        </div>
+
+        <div class="tabs mt-5" id="Requests">
+            <textarea style="margin-left:15%;width:70%" type="text" cols="10" name="user-writing"
+                placeholder="  Type your request here" rows="7"></textarea>
+            <button id="requestBtn">Submit your request</button>
+            <br>
+            <p>Press the button to get a random reccomendation. </p>
+            <img style="display: block;margin-left: auto; margin-right: auto;width: 160px;height:160px;
+            padding:35px" src="images/giftBox.webp" alt="Image not found!">
+            <br>
+            <button id="randomRead">Get something to read!</button>
+        </div>
+
+        <div class="tabs mt-5" id="About">
+            <p class="poem">"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor<br>
+                incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud<br>
+                exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor<br>
+                in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.<br>
+                Excepteur sint occaecat cupidatat<br>
+                non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.<br>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor<br>
+                incididunt ut labore et dolore magna <br>
+                aliqua. Ut enim ad minim veniam, quis nostrud<br>
+                exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor<br>
+                in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.<br>
+                Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt<br>
+                mollit anim id est laborum.<br>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor<br>
+                incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud<br>
+                exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor<br>
+                in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.<br>
+                Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt<br>
+                mollit anim id est laborum."<br>
+            </p>
+        </div>
+
+        <div id="bottom">
+            <button onclick="showTab('About')" href="#About">
+                <p class="text-xl">
+                    About the site
+                </p>
+            </button>
+        </div>
+
+        <script src="script.js"></script>
+    </div>
+</body>
+
+</html>
